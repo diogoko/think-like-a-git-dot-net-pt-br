@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+
+  <!-- Meta & Title -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Sam Livingston-Gray" />
+  <title>Cherry-Picking Explained // Think Like (a) Git</title>
+
+  <!-- CSS -->
+  <link type="text/css" rel="stylesheet" href="/think-like-a-git-dot-net-pt-br/assets/css/style.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="/think-like-a-git-dot-net-pt-br/assets/css/customizations.css" media="screen" />
+
+  <!-- (why was this here?) -->
+  <!-- Hooks -->
+  <!-- <link rel="index" title="Vectors" href="#" /> -->
+
+  <!-- Javascript -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/think-like-a-git-dot-net-pt-br/assets/js/jquery.tools.min.js"></script>
+  <script type="text/javascript" src="/think-like-a-git-dot-net-pt-br/assets/js/superfish.js"></script>
+  <script type="text/javascript" src="/think-like-a-git-dot-net-pt-br/assets/js/jquery.tipTip.min.js"></script>
+  <script type="text/javascript" src="/think-like-a-git-dot-net-pt-br/assets/js/custom.js"></script>
+
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27154496-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</head>
+
+<body>
+  <div id="header">
+    <div class="wrapper">
+
+      <!-- Static Logo  -->
+      <h1 class="title"><a href="/think-like-a-git-dot-net-pt-br">Think Like (a) Git</a></h1>
+      <h3 class="subtitle">A Guide for the Perplexed</h3>
+
+    </div><!-- #wrapper -->
+  </div><!-- #header -->
+
+  <div id="nav-top">
+    <div class="wrapper">
+
+      <!-- Top Navigation Menu -->
+      <ul class="menu-nav-top">
+        <li><a href='/think-like-a-git-dot-net-pt-br'>Home</a></li>
+        <li><a href="/think-like-a-git-dot-net-pt-br/tldr.html">TL;DR</a></li>
+        <!-- <li><a>Read In...</a> -->
+        <!--   <ul> -->
+        <!--     <li><a href="/think-like-a-git-dot-net-pt-br//sections/about&amp;#45;this&amp;#45;site.html">AD/HD mode</a></li> -->
+        <!--     <li><a href="/think-like-a-git-dot-net-pt-br//epic.html">EPIC MODE</a></li> -->
+        <!--   </ul> -->
+        <!-- </li> -->
+        <li><a href="/think-like-a-git-dot-net-pt-br//resources.html">Resources</a></li>
+        <li><a href="/think-like-a-git-dot-net-pt-br//halp.html">HALP!</a></li>
+        <li><a href="/think-like-a-git-dot-net-pt-br//changelog.html">Changelog</a></li>
+        <!-- <li></li> -->
+      </ul>
+
+      <!-- Top Social Links -->
+      <ul class="social-links">
+        <li><a href="mailto:geeksam@gmail.com" title="Email" class="w-tooltip"><img src="/think-like-a-git-dot-net-pt-br/assets/images/icon_email.png" alt="Email" /></a></li>
+        <li><a href="http://twitter.com/geeksam" title="Twitter" class="w-tooltip"><img src="/think-like-a-git-dot-net-pt-br/assets/images/icon_twitter.png" alt="Twitter" /></a></li>
+      </ul>
+
+    </div><!-- #wrapper -->
+  </div><!-- #nav-top -->
+
+  <div class="wrapper">
+    <div id="content" class="grid12 last">
+
+      <div class="post page-content">
+        <div class="entry-content">
+          <!-- Primary content -->
+          <div class="two_third">
+              <h2>Cherry-Picking Explained</h2>
+
+  <p>Git's own online help has a perfectly accurate, if characteristically terse, description of what the command does:</p>
+
+<blockquote>
+  <p>Given one or more existing commits, apply the change each one introduces, recording a new commit for each.</p>
+</blockquote>
+
+<p>I've already mentioned (back on the page about <a href="/sections/graphs-and-git/garbage-collection.html">Garbage Collection</a>) that a Git commit's ID is a hash of both its contents and its history.  So, even if you have two commits that introduce the exact same change, if they point to different parent commits, they'll have different IDs.</p>
+
+<p>What <code class="inline">git cherry-pick</code> does, basically, is take a commit from somewhere else, and "play it back" wherever you are right now.  Because this introduces the same change with a different parent, Git builds a new commit with a different ID.</p>
+
+<p>Let's go back to this example from the <a href="/sections/graph-theory/reachability.html">Reachability</a> section:</p>
+
+<div class="wp-caption">
+  <img src="/assets/images2/reachability-example.png" class="no-shadow" />
+</div>
+
+<p>If you were at node H in this graph, and you typed <code class="inline">git cherry-pick E</code> <em>(yes, you'd actually type part or all of the SHA for the commit, but for simplicity's sake, I'll just use the labels that are already here)</em>, you'd wind up with a copy of commit E&mdash;let's call it "E prime" or <strong>E'</strong>&mdash;that pointed to <strong>H</strong> as its parent, like so:</p>
+
+<div class="wp-caption">
+  <img src="/assets/images2/cherry-pick-example-1.png" class="no-shadow" />
+</div>
+
+<p>Or, if you typed something like <code class="inline">git cherry-pick C D E</code>, you'd wind up with this when you were done:</p>
+
+<div class="wp-caption">
+  <img src="/assets/images2/cherry-pick-example-2.png" class="no-shadow" />
+</div>
+
+<p>The important thing to notice here is that Git has copied changes made in one place, and replayed them somewhere else.</p>
+
+<p>Here's a quick slideshow that steps through the process:</p>
+
+<!-- Making up for my lack of Javascript skills with Ruby instead -->
+<div class="wp-caption">
+    <div id="cherry-pick-slideshow-slide-1" class="cherry-pick-slideshow-slide" style="text-align: left;">
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-1.png" class="no-shadow" />
+      <div style="text-align: center;">
+        Step 1
+        <br />
+        <button disabled onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
+        <button disabled onclick="show_slide('cherry-pick-slideshow', 0);">&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 2);">&rarr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+      </div>
+    </div>
+    <div id="cherry-pick-slideshow-slide-2" class="cherry-pick-slideshow-slide" style="text-align: left;">
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-2.png" class="no-shadow" />
+      <div style="text-align: center;">
+        Step 2
+        <br />
+        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 3);">&rarr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+      </div>
+    </div>
+    <div id="cherry-pick-slideshow-slide-3" class="cherry-pick-slideshow-slide" style="text-align: left;">
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-3.png" class="no-shadow" />
+      <div style="text-align: center;">
+        Step 3
+        <br />
+        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 2);">&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 4);">&rarr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+      </div>
+    </div>
+    <div id="cherry-pick-slideshow-slide-4" class="cherry-pick-slideshow-slide" style="text-align: left;">
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-4.png" class="no-shadow" />
+      <div style="text-align: center;">
+        Step 4
+        <br />
+        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 3);">&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 5);">&rarr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+      </div>
+    </div>
+    <div id="cherry-pick-slideshow-slide-5" class="cherry-pick-slideshow-slide" style="text-align: left;">
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-5.png" class="no-shadow" />
+      <div style="text-align: center;">
+        Step 5
+        <br />
+        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 4);">&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 6);">&rarr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+      </div>
+    </div>
+    <div id="cherry-pick-slideshow-slide-6" class="cherry-pick-slideshow-slide" style="text-align: left;">
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-6.png" class="no-shadow" />
+      <div style="text-align: center;">
+        Step 6
+        <br />
+        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 5);">&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+      </div>
+    </div>
+    <div id="cherry-pick-slideshow-slide-7" class="cherry-pick-slideshow-slide" style="text-align: left;">
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-7.png" class="no-shadow" />
+      <div style="text-align: center;">
+        Step 7
+        <br />
+        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
+        <button  onclick="show_slide('cherry-pick-slideshow', 6);">&larr;</button>
+        <button disabled onclick="show_slide('cherry-pick-slideshow', 8);">&rarr;</button>
+        <button disabled onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+      </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+  function show_slide(slideshow, index) {
+    $('.'+slideshow+'-slide').hide();
+    $('#'+slideshow+'-slide-' + index).show();
+  }
+  $(document).ready(function() {
+    show_slide('cherry-pick-slideshow', 1);
+  })
+</script>
+
+
+  <div class="clear"></div><div class="linear_nav_links"><a href="/sections/rebase-from-the-ground-up.html" class="prev">&larr; Rebase From the Ground Up</a><link rel="prev" href="/sections/rebase-from-the-ground-up.html" /><a href="/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html" class="next">Using 'git cherry-pick' to Simulate 'git rebase' &rarr;</a><link rel="next" href="/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html" /></div>
+
+  <!-- keyboard prev/next navigation -->
+  <script type="text/javascript" src="/assets/js/section.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+      $(document).keydown(nav_hotkey);
+    });
+  </script>
+
+          </div>
+
+          <!-- Sidebar with site map -->
+          <div class="one_third last">
+            <ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/about-this-site.html">About This Site</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/about-this-site/who-this-site-is-for.html">Who This Site Is For</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/about-this-site/what-this-site-will-try-to-teach-you.html">What This Site Will Try to Teach You</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/about-this-site/why-this-site.html">Why This Site?</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/about-this-site/about-the-author.html">About the Author</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x.html">Git Makes More Sense When You Understand X</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x/example-1-kent-beck.html">Example 1: Kent Beck</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x/example-2-git-for-ages-4-and-up.html">Example 2: Git for Ages 4 and Up</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x/example-3-homeomorphic-endofunctors.html">Example 3: Homeomorphic Endofunctors</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x/example-4-lsd-and-chainsaws.html">Example 4: LSD and Chainsaws</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x/the-internet-talks-back.html">The Internet Talks Back!</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory.html">Graph Theory</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/seven-bridges-of-konigsberg.html">Seven Bridges of Königsberg</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/places-to-go-and-ways-to-get-there.html">Places To Go, and Ways to Get There</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/nodes-and-edges.html">Nodes and Edges</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/attaching-labels-to-nodes.html">Attaching Labels to Nodes</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/attaching-labels-to-edges.html">Attaching Labels to Edges</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/directed-versus-undirected-graphs.html">Directed Versus Undirected Graphs</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/reachability.html">Reachability</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git.html">Graphs and Git</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git/visualizing-your-git-repository.html">Visualizing Your Git Repository</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git/references.html">References</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git/the-reference-reference.html">The Reference Reference</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git/making-sense-of-the-display.html">Making Sense of the Display</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git/garbage-collection.html">Garbage Collection</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/experimenting-with-git.html">Experimenting With Git</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/experimenting-with-git/references-make-commits-reachable.html">References Make Commits Reachable</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/experimenting-with-git/my-humble-beginnings.html">My Humble Beginnings</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/experimenting-with-git/branches-as-savepoints.html">Branches as Savepoints</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/experimenting-with-git/use-your-targeting-computer-luke.html">Use Your Targeting Computer, Luke</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges.html">Testing Out Merges</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges/the-scout-pattern.html">The Scout Pattern</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges/the-savepoint-pattern.html">The Savepoint Pattern</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges/black-belt-merging.html">Black Belt Merging</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up.html">Rebase From the Ground Up</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up/cherry-picking-explained.html">Cherry-Picking Explained</a>&nbsp;<span class="current-marker">&larr;HEAD</span></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html">Using 'git cherry-pick' to Simulate 'git rebase'</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up/a-helpful-mnemonic-for-git-rebase-arguments.html">A Helpful Mnemonic for 'git rebase' Arguments</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/the-end.html">The End</a></li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div><!-- #content -->
+
+    <div class="clear"></div>
+  </div><!-- wrapper -->
+
+
+  <div id="footer" class="container">
+    <div class="wrapper">
+
+      <!-- Footer Copyright -->
+      <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="/think-like-a-git-dot-net-pt-br/assets/images2/cc-license-80x15.png" /></a><br />
+        <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Think Like (a) Git</span> copyright &copy; 2011-2017 <a xmlns:cc="http://creativecommons.org/ns#" href="http://think-like-a-git.net" property="cc:attributionName" rel="cc:attributionURL">Sam Livingston-Gray</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+      </p>
+      <p><br />Original template &copy; 2011 <span>&middot;</span> Vectors Community Theme <span>&middot;</span> All Rights Reserved</p>
+      <div class="clear"></div>
+
+    </div><!-- wrapper -->
+  </div><!-- footer -->
+
+
+</body>
+
+</html>

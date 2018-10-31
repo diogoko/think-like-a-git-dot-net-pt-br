@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+
+  <!-- Meta & Title -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Sam Livingston-Gray" />
+  <title>HALP! // Think Like (a) Git</title>
+
+  <!-- CSS -->
+  <link type="text/css" rel="stylesheet" href="/think-like-a-git-dot-net-pt-br/assets/css/style.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="/think-like-a-git-dot-net-pt-br/assets/css/customizations.css" media="screen" />
+
+  <!-- (why was this here?) -->
+  <!-- Hooks -->
+  <!-- <link rel="index" title="Vectors" href="#" /> -->
+
+  <!-- Javascript -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/think-like-a-git-dot-net-pt-br/assets/js/jquery.tools.min.js"></script>
+  <script type="text/javascript" src="/think-like-a-git-dot-net-pt-br/assets/js/superfish.js"></script>
+  <script type="text/javascript" src="/think-like-a-git-dot-net-pt-br/assets/js/jquery.tipTip.min.js"></script>
+  <script type="text/javascript" src="/think-like-a-git-dot-net-pt-br/assets/js/custom.js"></script>
+
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27154496-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</head>
+
+<body>
+  <div id="header">
+    <div class="wrapper">
+
+      <!-- Static Logo  -->
+      <h1 class="title"><a href="/think-like-a-git-dot-net-pt-br">Think Like (a) Git</a></h1>
+      <h3 class="subtitle">A Guide for the Perplexed</h3>
+
+    </div><!-- #wrapper -->
+  </div><!-- #header -->
+
+  <div id="nav-top">
+    <div class="wrapper">
+
+      <!-- Top Navigation Menu -->
+      <ul class="menu-nav-top">
+        <li><a href='/think-like-a-git-dot-net-pt-br'>Home</a></li>
+        <li><a href="/think-like-a-git-dot-net-pt-br/tldr.html">TL;DR</a></li>
+        <!-- <li><a>Read In...</a> -->
+        <!--   <ul> -->
+        <!--     <li><a href="/think-like-a-git-dot-net-pt-br//sections/about&amp;#45;this&amp;#45;site.html">AD/HD mode</a></li> -->
+        <!--     <li><a href="/think-like-a-git-dot-net-pt-br//epic.html">EPIC MODE</a></li> -->
+        <!--   </ul> -->
+        <!-- </li> -->
+        <li><a href="/think-like-a-git-dot-net-pt-br//resources.html">Resources</a></li>
+        <li><a href="/think-like-a-git-dot-net-pt-br//halp.html">HALP!</a></li>
+        <li><a href="/think-like-a-git-dot-net-pt-br//changelog.html">Changelog</a></li>
+        <!-- <li></li> -->
+      </ul>
+
+      <!-- Top Social Links -->
+      <ul class="social-links">
+        <li><a href="mailto:geeksam@gmail.com" title="Email" class="w-tooltip"><img src="/think-like-a-git-dot-net-pt-br/assets/images/icon_email.png" alt="Email" /></a></li>
+        <li><a href="http://twitter.com/geeksam" title="Twitter" class="w-tooltip"><img src="/think-like-a-git-dot-net-pt-br/assets/images/icon_twitter.png" alt="Twitter" /></a></li>
+      </ul>
+
+    </div><!-- #wrapper -->
+  </div><!-- #nav-top -->
+
+  <div class="wrapper">
+    <div id="content" class="grid12 last">
+
+      <div class="post page-content">
+        <div class="entry-content">
+          <!-- Primary content -->
+          <div class="two_third">
+            <h1>HALP!</h1>
+
+<p>If you've just lost some work in Git, and you're trying to recover your lost commits, this page is for you.  Maybe you tried a rebase, or got lost in a bunch of merge conflicts, and Git didn't do what you thought it was going to do, and now you can't see the commit that holds your last several hours worth of work.</p>
+
+<h2>Don't Panic.</h2>
+
+<p>Odds are, you didn't do anything exotic.  Your commit is probably still sitting there on disk, but you just can't see it.</p>
+
+<h2>Figure out where you are right now</h2>
+
+<p><strong>I'm going to assume you're on a branch.</strong>  You can confirm this by typing <code class="inline">git status</code> in your repo.  The very first line should say "On branch master" (or "On branch very-important-branch" or whatever the name of the branch you're on is).  <strong>If not, please make a backup of your directory before proceeding and try to get some expert help</strong>!  I can't cover all the possibilities in a document like this, and I'd hate to lead you further astray at this point.</p>
+
+<p>If the second line <strong>doesn't</strong> say "nothing to commit (working directory clean)", you have some unsaved changes.  You might be able to save them by using 'git stash', or you might want to copy some files out somewhere else if you're really paranoid.  Or, you just may not care...</p>
+
+<p><strong>If you were in the middle of a rebase and something weird happened,</strong> you may be able to just type <code class="inline">git rebase --abort</code> and get back to a known-good state.  First, though, just try scrolling back in your history; Git will print a message telling you what to do every time it stops during a rebase.</p>
+
+<p><strong>If you tried a merge and got stuck resolving nasty merge conflicts,</strong> <code class="inline">git status</code> may include a message like "Unmerged paths:" followed by a list of files.  If you just want to back out of the merge, you can probably use <code class="inline">git reset</code> to get back.  If you're <em>really</em> sure you don't need any of the current working state (i.e., you started the merge from a clean working state), <code class="inline">git reset --hard</code> may be what you want.</p>
+
+<p><strong>If you did a merge and it appears to have worked successfully, but now you want to undo it,</strong> just use <code class="inline">git reset --hard</code> to point your branch back at the commit it was on right before you did the merge.  (You should be able to see this in the output from <code class="inline">git log</code>, or your visualizer, but if not, read on.)</p>
+
+<h2>Finding your lost commit</h2>
+
+<p>Whatever branch you're on, here's the good news:  Git keeps track of every commit that that branch has ever pointed to.  It does this in what's called the 'reflog' <em>(that's short for "reference log")</em> for your branch, which lives in the following plain-text file:  <strong>[repository-root]/.git/logs/refs/heads/[branch-name]</strong>.  The reflog for the <strong>master</strong> branch is in <strong>.git/logs/refs/heads/master</strong>, and the reflog for <strong>very-important-branch</strong> is in <strong>.git/logs/refs/heads/very-important-branch</strong>, and so on.</p>
+
+<p>So. Take a deep breath, go to the root of your repository at the command line, and type this:  <code class="inline">cat .git/logs/refs/heads/master</code></p>
+
+<p>You should see a bunch of lines of the form:</p>
+
+<p>[old SHA1] [new SHA1] [Author] [Timestamp] [Commit message]</p>
+
+<p>The newest lines are at the bottom.  From here, you should be able to find the line containing the commit message for the commit that you'd really really like to get back.  The second column in that line is the SHA1 that you want.  <strong>Highlight that sucker and copy it to your clipboard.</strong></p>
+
+<h2>Getting your work back</h2>
+
+<p>This is going to be a bit anticlimactic, but here's what you do:</p>
+
+<code>
+  git checkout deadbeef    # where 'deadbeef' is the SHA1 you just found and copied
+  git branch i_want_this_code_back
+</code>
+
+<p>If you're using a visualizer like GitX or gitk, switch back over to it and refresh its view.  (You may also need to tell it to display all local branches.)  Or, do <code class="inline">git log --pretty=oneline --abbrev-commit --branches=* --graph --decorate</code> if you're old school.  Your commit should be visible again, with an 'i_want_this_code_back' branch next to it.</p>
+
+<h2>Wrapping up</h2>
+
+<p>I hope this has been helpful.  Either way, please drop me a line via email or Twitter and let me know if there are ways I can improve this guide.</p>
+
+<p>Once your heart rate slows down a bit, you may want to take a look around this site.  The whole thing shouldn't take more than an hour to read through, but if you're in a hurry, check out the <a href="/think-like-a-git-dot-net-pt-br//tldr.html">TL;DR</a> page.</p>
+
+<p>Elsewhere on the Internets, check out <a href="http://programblings.com/2008/06/07/the-illustrated-guide-to-recovering-lost-commits-with-git/">The Illustrated Guide to Recovering Lost Commits With Git</a> when you have half an hour to work through the examples.</p>
+
+<p>
+Happy hacking!
+<br />-Sam
+</p>
+
+
+          </div>
+
+          <!-- Sidebar with site map -->
+          <div class="one_third last">
+            <ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/about-this-site.html">About This Site</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/about-this-site/who-this-site-is-for.html">Who This Site Is For</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/about-this-site/what-this-site-will-try-to-teach-you.html">What This Site Will Try to Teach You</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/about-this-site/why-this-site.html">Why This Site?</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/about-this-site/about-the-author.html">About the Author</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x.html">Git Makes More Sense When You Understand X</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x/example-1-kent-beck.html">Example 1: Kent Beck</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x/example-2-git-for-ages-4-and-up.html">Example 2: Git for Ages 4 and Up</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x/example-3-homeomorphic-endofunctors.html">Example 3: Homeomorphic Endofunctors</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x/example-4-lsd-and-chainsaws.html">Example 4: LSD and Chainsaws</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x/the-internet-talks-back.html">The Internet Talks Back!</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory.html">Graph Theory</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/seven-bridges-of-konigsberg.html">Seven Bridges of Königsberg</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/places-to-go-and-ways-to-get-there.html">Places To Go, and Ways to Get There</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/nodes-and-edges.html">Nodes and Edges</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/attaching-labels-to-nodes.html">Attaching Labels to Nodes</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/attaching-labels-to-edges.html">Attaching Labels to Edges</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/directed-versus-undirected-graphs.html">Directed Versus Undirected Graphs</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/reachability.html">Reachability</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git.html">Graphs and Git</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git/visualizing-your-git-repository.html">Visualizing Your Git Repository</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git/references.html">References</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git/the-reference-reference.html">The Reference Reference</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git/making-sense-of-the-display.html">Making Sense of the Display</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git/garbage-collection.html">Garbage Collection</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/experimenting-with-git.html">Experimenting With Git</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/experimenting-with-git/references-make-commits-reachable.html">References Make Commits Reachable</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/experimenting-with-git/my-humble-beginnings.html">My Humble Beginnings</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/experimenting-with-git/branches-as-savepoints.html">Branches as Savepoints</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/experimenting-with-git/use-your-targeting-computer-luke.html">Use Your Targeting Computer, Luke</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges.html">Testing Out Merges</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges/the-scout-pattern.html">The Scout Pattern</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges/the-savepoint-pattern.html">The Savepoint Pattern</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges/black-belt-merging.html">Black Belt Merging</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up.html">Rebase From the Ground Up</a></li>
+<ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up/cherry-picking-explained.html">Cherry-Picking Explained</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html">Using 'git cherry-pick' to Simulate 'git rebase'</a></li>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up/a-helpful-mnemonic-for-git-rebase-arguments.html">A Helpful Mnemonic for 'git rebase' Arguments</a></li>
+</ul>
+<li><a href="/think-like-a-git-dot-net-pt-br/sections/the-end.html">The End</a></li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div><!-- #content -->
+
+    <div class="clear"></div>
+  </div><!-- wrapper -->
+
+
+  <div id="footer" class="container">
+    <div class="wrapper">
+
+      <!-- Footer Copyright -->
+      <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="/think-like-a-git-dot-net-pt-br/assets/images2/cc-license-80x15.png" /></a><br />
+        <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Think Like (a) Git</span> copyright &copy; 2011-2017 <a xmlns:cc="http://creativecommons.org/ns#" href="http://think-like-a-git.net" property="cc:attributionName" rel="cc:attributionURL">Sam Livingston-Gray</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+      </p>
+      <p><br />Original template &copy; 2011 <span>&middot;</span> Vectors Community Theme <span>&middot;</span> All Rights Reserved</p>
+      <div class="clear"></div>
+
+    </div><!-- wrapper -->
+  </div><!-- footer -->
+
+
+</body>
+
+</html>

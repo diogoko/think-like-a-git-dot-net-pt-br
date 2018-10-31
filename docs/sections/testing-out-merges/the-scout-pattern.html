@@ -87,7 +87,9 @@
           <div class="two_third">
               <h2>The Scout Pattern</h2>
 
-  <p>Here's a quick overview of the steps in this recipe:</p>
+  
+
+<p>Here's a quick overview of the steps in this recipe:</p>
 
 <ol class="full-size">
   <li>Make sure you're on the right branch and that you have a clean working state.</li>
@@ -96,6 +98,7 @@
   <li>Switch to your visualizer and predict how its view will change when you refresh it.</li>
   <li>Refresh your visualizer and see whether your prediction was correct.</li>
   <li>Are you happy with the result?
+    
     <ul>
       <li>If YES: Move your real branch forward to where the <em>test_merge</em> branch is.</li>
       <li>If NO: Delete the <em>test_merge</em> branch.</li>
@@ -114,6 +117,7 @@
     <strong>Make sure you're on the right branch and that you have a clean working state.</strong>
     <ul>
       <li>
+        
         Whatever visualizer you're using, figure out how it shows you where your current branch is.  Or, at the command line, type <code class="inline">git status</code> and you should see something like this:
         <code>
           # On branch master <br />
@@ -126,7 +130,9 @@
     <strong>Create a new branch and switch to it.</strong>
     <ul>
       <li>
+        
         Type <code class="inline">git checkout -b test_merge</code>.  Now, if you type <code class="inline">git status</code> again, you should see a message that you're on the <em><strong>test_merge</strong></em> branch.
+      
       </li>
     </ul>
   </li>
@@ -134,7 +140,9 @@
     <strong>Do the merge.</strong>
     <ul>
       <li>
+        
         Type <code class="inline">git merge spiffy_new_feature</code>.  If you're lucky, there won't be any merge conflicts you can't resolve.
+      
       </li>
       <li><strong>If you want to abort the merge</strong> at this point, type <code class="inline">git reset --hard</code>.</li>
     </ul>
@@ -143,7 +151,9 @@
     <strong>Switch to your visualizer and predict how its view will change when you refresh it.</strong>
     <ul>
       <li>
+        
         For example:
+        
         <ol>
           <li>After a merge, you should see a new commit.</li>
           <li>The new commit should have a message like "Merge branch 'spiffy_new_feature' into master".</li>

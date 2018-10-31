@@ -87,21 +87,27 @@
           <div class="two_third">
               <h2>A Helpful Mnemonic for 'git rebase' Arguments</h2>
 
-  <p>To summarize the previous section, this:</p>
+  
+
+<p>To summarize the previous section, this:</p>
 
 <code>
+  
   git checkout foo<br />
   git checkout -b newbar<br />
   git cherry-pick C D E <br />
   git checkout bar <br />
   git reset --hard newbar <br />
   git branch -d newbar
+
 </code>
 
 <p>is equivalent to this:</p>
 
 <code>
+  
   git rebase foo bar
+
 </code>
 
 <p>When you do a rebase, you are <em><strong>rewriting history.</strong></em>  You are, in effect, saying to Git, "Hey, you know those things that happened over there on that completely different timeline?  I want you to pretend that they happened here instead."</p>

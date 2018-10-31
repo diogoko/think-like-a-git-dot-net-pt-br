@@ -87,14 +87,18 @@
           <div class="two_third">
               <h2>My Humble Beginnings</h2>
 
-  <p>When I first started using Git, I was really paranoid about losing code.  The only <abbr title="Version Control System">VCS</abbr> I'd used before that was Subversion, where branching is this arcane thing that causes all kinds of trouble.  So I didn't have a lot of practice with merging -- let alone rebasing, which everyone said was really dangerous.  (Remember <a href="/sections/git-makes-more-sense-when-you-understand-x/example-4-lsd-and-chainsaws.html">LSD and chainsaws</a>?)</p>
+  
+
+<p>When I first started using Git, I was really paranoid about losing code.  The only <abbr title="Version Control System">VCS</abbr> I'd used before that was Subversion, where branching is this arcane thing that causes all kinds of trouble.  So I didn't have a lot of practice with merging -- let alone rebasing, which everyone said was really dangerous.  (Remember <a href="/sections/git-makes-more-sense-when-you-understand-x/example-4-lsd-and-chainsaws.html">LSD and chainsaws</a>?)</p>
 
 <p>So, before I tried something I was a little uncertain about, <strong>I would back up <em>the entire directory.</em></strong></p>
 
 <code>
+  
   $ cd ..<br />
   $ cp -r work backup_work<br />
   $ cd work
+
 </code>
 
 <p>Then I'd do the merge, or rebase, or whatever it was that I thought was tricky.  If it looked like it worked, I'd continue on; if not, I'd delete the working directory, rename the old one, and try something else.</p>

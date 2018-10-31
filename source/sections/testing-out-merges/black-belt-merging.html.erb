@@ -3,11 +3,13 @@ title:  "Black Belt Merging"
 layout: section
 ---
 
+
+
 <p>Once you're comfortable with <%= section_link('the Savepoint pattern') %>, you might get tired of creating the savepoint branch, only to have to remember to delete it every time.  If so, I have good news for you:  you don't actually need to use a branch as a savepoint for merges.</p>
 
 <p>Merge commits always wind up with a branch label pointing at them, and one of the branch's parent commits will be the commit that that branch label was just moved from.</p>
 
-<p>It may take you a few tries to parse that sentence.  The upshot is that the commit you started on&mdash;the one you would've marked with a savepoint branch&mdash;<strong>will always be reachable.</strong></p>
+<p>It may take you a few tries to parse that sentence.  The upshot is that the commit you started on—the one you would've marked with a savepoint branch—<strong>will always be reachable.</strong></p>
 
 <p>Here's the thing:  <strong>Git doesn't care what you call your branches.</strong>  Remember, branches are just a 40-byte file on disk that points to the commit's SHA-1 hash, which is what Git really uses for all of its work.  The branch is just there for us puny humans to have some convenient, memorable name pointing to part of the graph.</p>
 
@@ -30,5 +32,7 @@ layout: section
 <p>...and <strong>Git would behave exactly the same</strong> as if you'd remembered to create a branch in the first place.</p>
 
 <div class="wp-caption" style="text-align: left; padding: 5px;">
+  
   That bit about "if you'd remembered to" reminds me:  one of the single most helpful bits of commentary I ever read about Git was Ryan Tomayko's <a href="http://tomayko.com/writings/the-thing-about-git">The Thing About Git</a>.  (Yes, that's the same thing I linked to in <%= section_link('example-4-lsd-and-chainsaws', 'LSD and Chainsaws') %>.)
+
 </div>

@@ -87,7 +87,9 @@
           <div class="two_third">
               <h2>Cherry-Picking Explained</h2>
 
-  <p>Git's own online help has a perfectly accurate, if characteristically terse, description of what the command does:</p>
+  
+
+<p>Git's own online help has a perfectly accurate, if characteristically terse, description of what the command does:</p>
 
 <blockquote>
   <p>Given one or more existing commits, apply the change each one introduces, recording a new commit for each.</p>
@@ -103,7 +105,7 @@
   <img src="/assets/images2/reachability-example.png" class="no-shadow" />
 </div>
 
-<p>If you were at node H in this graph, and you typed <code class="inline">git cherry-pick E</code> <em>(yes, you'd actually type part or all of the SHA for the commit, but for simplicity's sake, I'll just use the labels that are already here)</em>, you'd wind up with a copy of commit E&mdash;let's call it "E prime" or <strong>E'</strong>&mdash;that pointed to <strong>H</strong> as its parent, like so:</p>
+<p>If you were at node H in this graph, and you typed <code class="inline">git cherry-pick E</code> <em>(yes, you'd actually type part or all of the SHA for the commit, but for simplicity's sake, I'll just use the labels that are already here)</em>, you'd wind up with a copy of commit E—let's call it "E prime" or <strong>E'</strong>—that pointed to <strong>H</strong> as its parent, like so:</p>
 
 <div class="wp-caption">
   <img src="/assets/images2/cherry-pick-example-1.png" class="no-shadow" />
@@ -117,85 +119,92 @@
 
 <p>The important thing to notice here is that Git has copied changes made in one place, and replayed them somewhere else.</p>
 
-<p>Here's a quick slideshow that steps through the process:</p>
+<p>Here's a quick slideshow that steps through the process:</p><!-- Making up for my lack of Javascript skills with Ruby instead -->
 
-<!-- Making up for my lack of Javascript skills with Ruby instead -->
+
 <div class="wp-caption">
     <div id="cherry-pick-slideshow-slide-1" class="cherry-pick-slideshow-slide" style="text-align: left;">
-      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-1.png" class="no-shadow" />
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-&lt;%= i %&gt;.png" class="no-shadow" />
       <div style="text-align: center;">
+        
         Step 1
         <br />
-        <button disabled onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
-        <button disabled onclick="show_slide('cherry-pick-slideshow', 0);">&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 2);">&rarr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+        <button >disabled onclick="show_slide('cherry-pick-slideshow', 1);"&gt;←←</button>
+        <button >disabled onclick="show_slide('cherry-pick-slideshow', 0);"&gt;←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 2);"&gt;→</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 7);"&gt;→→</button>
       </div>
     </div>
     <div id="cherry-pick-slideshow-slide-2" class="cherry-pick-slideshow-slide" style="text-align: left;">
-      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-2.png" class="no-shadow" />
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-&lt;%= i %&gt;.png" class="no-shadow" />
       <div style="text-align: center;">
+        
         Step 2
         <br />
-        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 3);">&rarr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 1);"&gt;←←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 1);"&gt;←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 3);"&gt;→</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 7);"&gt;→→</button>
       </div>
     </div>
     <div id="cherry-pick-slideshow-slide-3" class="cherry-pick-slideshow-slide" style="text-align: left;">
-      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-3.png" class="no-shadow" />
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-&lt;%= i %&gt;.png" class="no-shadow" />
       <div style="text-align: center;">
+        
         Step 3
         <br />
-        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 2);">&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 4);">&rarr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 1);"&gt;←←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 2);"&gt;←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 4);"&gt;→</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 7);"&gt;→→</button>
       </div>
     </div>
     <div id="cherry-pick-slideshow-slide-4" class="cherry-pick-slideshow-slide" style="text-align: left;">
-      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-4.png" class="no-shadow" />
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-&lt;%= i %&gt;.png" class="no-shadow" />
       <div style="text-align: center;">
+        
         Step 4
         <br />
-        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 3);">&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 5);">&rarr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 1);"&gt;←←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 3);"&gt;←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 5);"&gt;→</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 7);"&gt;→→</button>
       </div>
     </div>
     <div id="cherry-pick-slideshow-slide-5" class="cherry-pick-slideshow-slide" style="text-align: left;">
-      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-5.png" class="no-shadow" />
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-&lt;%= i %&gt;.png" class="no-shadow" />
       <div style="text-align: center;">
+        
         Step 5
         <br />
-        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 4);">&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 6);">&rarr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 1);"&gt;←←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 4);"&gt;←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 6);"&gt;→</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 7);"&gt;→→</button>
       </div>
     </div>
     <div id="cherry-pick-slideshow-slide-6" class="cherry-pick-slideshow-slide" style="text-align: left;">
-      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-6.png" class="no-shadow" />
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-&lt;%= i %&gt;.png" class="no-shadow" />
       <div style="text-align: center;">
+        
         Step 6
         <br />
-        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 5);">&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 1);"&gt;←←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 5);"&gt;←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 7);"&gt;→</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 7);"&gt;→→</button>
       </div>
     </div>
     <div id="cherry-pick-slideshow-slide-7" class="cherry-pick-slideshow-slide" style="text-align: left;">
-      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-7.png" class="no-shadow" />
+      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-&lt;%= i %&gt;.png" class="no-shadow" />
       <div style="text-align: center;">
+        
         Step 7
         <br />
-        <button  onclick="show_slide('cherry-pick-slideshow', 1);">&larr;&larr;</button>
-        <button  onclick="show_slide('cherry-pick-slideshow', 6);">&larr;</button>
-        <button disabled onclick="show_slide('cherry-pick-slideshow', 8);">&rarr;</button>
-        <button disabled onclick="show_slide('cherry-pick-slideshow', 7);">&rarr;&rarr;</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 1);"&gt;←←</button>
+        <button > onclick="show_slide('cherry-pick-slideshow', 6);"&gt;←</button>
+        <button >disabled onclick="show_slide('cherry-pick-slideshow', 8);"&gt;→</button>
+        <button >disabled onclick="show_slide('cherry-pick-slideshow', 7);"&gt;→→</button>
       </div>
     </div>
 </div>

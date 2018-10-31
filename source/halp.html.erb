@@ -2,48 +2,49 @@
 title: HALP!
 ---
 
+
+
 <h1>HALP!</h1>
 
-<p>If you've just lost some work in Git, and you're trying to recover your lost commits, this page is for you.  Maybe you tried a rebase, or got lost in a bunch of merge conflicts, and Git didn't do what you thought it was going to do, and now you can't see the commit that holds your last several hours worth of work.</p>
+<p>Se você acabou de perder algum trabalho no Git e você está tentando recuperar seus commits perdidos, esta página é para você. Talvez você tenha tentado um rebase, ou se perdeu numa porção de conflitos de merge, e o Git não fez o que você achou que ira fazer, e agora você não consegue ver o commit que contém suas últimas horas de trabalho.</p>
 
-<h2>Don't Panic.</h2>
+<h2>Não Entre em Pânico.</h2>
 
-<p>Odds are, you didn't do anything exotic.  Your commit is probably still sitting there on disk, but you just can't see it.</p>
+<p>Provavelmente você não fez nada exótico. Seu commit provavelmente ainda está lá no disco e você somente não consegue vê-lo.</p>
 
-<h2>Figure out where you are right now</h2>
+<h2>Descubra onde você está neste momento</h2>
 
-<p><strong>I'm going to assume you're on a branch.</strong>  You can confirm this by typing <code class="inline">git status</code> in your repo.  The very first line should say "On branch master" (or "On branch very-important-branch" or whatever the name of the branch you're on is).  <strong>If not, please make a backup of your directory before proceeding and try to get some expert help</strong>!  I can't cover all the possibilities in a document like this, and I'd hate to lead you further astray at this point.</p>
+<p><strong>Eu vou assumir que você está num branch.</strong> Você pode confirmar isso digitando<code class="inline">git status</code> no seu repositório. A primeira linha deve dizer "On branch master" (ou "On branch branch-muito-importante" ou seja lá qual for o nome do branch em que você está). <strong>Se não, por favor faça um backup do seu diretório antes de continuar e tente conseguir ajuda de algum especialista</strong>! Eu não tenho como cobrir todas as possibilidades num documento como este e detestaria piorar a sua situação neste momento.</p>
 
-<p>If the second line <strong>doesn't</strong> say "nothing to commit (working directory clean)", you have some unsaved changes.  You might be able to save them by using 'git stash', or you might want to copy some files out somewhere else if you're really paranoid.  Or, you just may not care...</p>
+<p>Se a segunda linha <strong>não</strong> diz "nothing to commit (working directory clean)", você tem alterações que ainda não foram salvas. Você pode ser capaz de salvá-las usando 'git stash', ou você pode copiar alguns arquivos para outro diretório se for muito paranóico. Ou talvez você nem ligue...</p>
 
-<p><strong>If you were in the middle of a rebase and something weird happened,</strong> you may be able to just type <code class="inline">git rebase --abort</code> and get back to a known-good state.  First, though, just try scrolling back in your history; Git will print a message telling you what to do every time it stops during a rebase.</p>
+<p><strong>Se você estava no meio de um rebase e alguma coisa esquisita aconteceu,</strong> talvez você possa digitar <code class="inline">git rebase --abort</code> e voltar para uma situação anterior ao problema. Primeiro, porém, tente navegar no seu histórico do console; o Git imprime uma mensagem dizendo o que você deve fazer toda vez que ele para durante um rebase.</p>
 
-<p><strong>If you tried a merge and got stuck resolving nasty merge conflicts,</strong> <code class="inline">git status</code> may include a message like "Unmerged paths:" followed by a list of files.  If you just want to back out of the merge, you can probably use <code class="inline">git reset</code> to get back.  If you're <em>really</em> sure you don't need any of the current working state (i.e., you started the merge from a clean working state), <code class="inline">git reset --hard</code> may be what you want.</p>
+<p><strong>Se você tentou um merge e ficou preso resolvendo conflitos de merge horrorosos,</strong> <code class="inline">git status</code> pode incluir uma mensagem como "Unmerged paths:" seguida por uma lista de arquivos. Se você só quer desfazer o merge, você provavelmente pode usar <code class="inline">git reset</code> para fazer isso. Se você <em>realmente</em> tem certeza de que não precisa das alterações atuais (ou seja, você começou o merge a partir de um estado de trabalho limpo), <code class="inline">git reset --hard</code> pode ser o que você quer.</p>
 
-<p><strong>If you did a merge and it appears to have worked successfully, but now you want to undo it,</strong> just use <code class="inline">git reset --hard</code> to point your branch back at the commit it was on right before you did the merge.  (You should be able to see this in the output from <code class="inline">git log</code>, or your visualizer, but if not, read on.)</p>
+<p><strong>Se você fez um merge e parece que deu certo, mas agora quer desfazê-lo,</strong> simplesmente use <code class="inline">git reset --hard</code> para apontar o seu branch de volta para o commit em que ele estava logo antes de você fazer o merge. (Você deve poder ver isso na saída do <code class="inline">git log</code> ou seu visalizador, mas se não conseguir, continue lendo.)</p>
 
-<h2>Finding your lost commit</h2>
+<h2>Procurando seu commit perdido</h2>
 
-<p>Whatever branch you're on, here's the good news:  Git keeps track of every commit that that branch has ever pointed to.  It does this in what's called the 'reflog' <em>(that's short for "reference log")</em> for your branch, which lives in the following plain-text file:  <strong>[repository-root]/.git/logs/refs/heads/[branch-name]</strong>.  The reflog for the <strong>master</strong> branch is in <strong>.git/logs/refs/heads/master</strong>, and the reflog for <strong>very-important-branch</strong> is in <strong>.git/logs/refs/heads/very-important-branch</strong>, and so on.</p>
+<p>Em qualquer branch que você esteja, essa é a boa notícia: o Git guarda todo commit para o qual aquele branch tenha apontado em qualquer momento. Ele faz isso no que é chamado de 'reflog' <em>(uma abreviação de "reference log", ou histórico de referências)</em> para seu branch, que fica no seguinte arquivo texto: <strong>[repository-root]/.git/logs/refs/heads/[branch-name]</strong>. O reflog para o branch <strong>master</strong> está em <strong>.git/logs/refs/heads/master</strong>, e o reflog para  <strong>branch-muito-importante</strong> está em <strong>.git/logs/refs/heads/branch-muito-importante</strong>, e assim por diante.</p>
 
-<p>So. Take a deep breath, go to the root of your repository at the command line, and type this:  <code class="inline">cat .git/logs/refs/heads/master</code></p>
+<p>Então... Respire fundo, va até a raiz do seu repositório na linha de comando, e digite isso: <code class="inline">cat .git/logs/refs/heads/master</code></p>
 
-<p>You should see a bunch of lines of the form:</p>
+<p>Você deve ver uma porção de linhas no formato:</p>
 
-<p>[old SHA1] [new SHA1] [Author] [Timestamp] [Commit message]</p>
+<p>[SHA1 antigo] [SHA1 novo] [Autor] [Data/hora] [Mensagem de commit]</p>
 
-<p>The newest lines are at the bottom.  From here, you should be able to find the line containing the commit message for the commit that you'd really really like to get back.  The second column in that line is the SHA1 that you want.  <strong>Highlight that sucker and copy it to your clipboard.</strong></p>
+<p>As linhas mais novas estão no final. A partir daqui, você deve ser capaz de achar a linha contendo a mensagem de commit para o commit que você quer tanto recuperar. A segunda coluna nessa linha é o SHA1 que você quer. <strong>Selecione esse sem vergonha e copie para sua área de transferência.</strong></p>
 
-<h2>Getting your work back</h2>
+<h2>Pegando seu trabalho de volta</h2>
 
-<p>This is going to be a bit anticlimactic, but here's what you do:</p>
+<p>Isso vai ser um pouco decepcionante, mas é isso que você fará:</p>
 
 <code>
-  git checkout deadbeef    # where 'deadbeef' is the SHA1 you just found and copied
-  git branch i_want_this_code_back
+  git checkout deadbeef # onde 'deadbeef' é o SHA1 que você acabou de encontrar e copiar git branch eu_quero_o_codigo_de_volta
 </code>
 
-<p>If you're using a visualizer like GitX or gitk, switch back over to it and refresh its view.  (You may also need to tell it to display all local branches.)  Or, do <code class="inline">git log --pretty=oneline --abbrev-commit --branches=* --graph --decorate</code> if you're old school.  Your commit should be visible again, with an 'i_want_this_code_back' branch next to it.</p>
+<p>Se você está usando um visualizador como GitX ou gitk, volte para ele e atualize a visualização. (Você pode precisar forçá-lo a mostrar todos os branches locais). Ou, faça <code class="inline">git log --pretty=oneline --abbrev-commit --branches=* --graph --decorate</code> se você é raiz. Seu commit deve estar visível de novo, com um branch 'eu_quero_o_codigo_de_volta' ao lado dele.</p>
 
 <h2>Wrapping up</h2>
 
@@ -54,7 +55,9 @@ title: HALP!
 <p>Elsewhere on the Internets, check out <a href="http://programblings.com/2008/06/07/the-illustrated-guide-to-recovering-lost-commits-with-git/">The Illustrated Guide to Recovering Lost Commits With Git</a> when you have half an hour to work through the examples.</p>
 
 <p>
+
 Happy hacking!
 <br />-Sam
+
 </p>
 

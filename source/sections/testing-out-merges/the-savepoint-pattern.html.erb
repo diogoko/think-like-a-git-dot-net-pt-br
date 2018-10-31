@@ -3,6 +3,8 @@ title:  "The Savepoint Pattern"
 layout: section
 ---
 
+
+
 <p>Here's a quick overview of the steps in this recipe:</p>
 
 <ol class="full-size">
@@ -12,6 +14,7 @@ layout: section
   <li>Switch to your visualizer and predict how its view will change when you refresh it.</li>
   <li>Refresh your visualizer and see whether your prediction was correct.</li>
   <li>Are you happy with the result?
+    
     <ul>
       <li>If YES: Delete the savepoint.</li>
       <li>If NO: Reset your branch to the savepoint.</li>
@@ -28,7 +31,8 @@ layout: section
 <ol>
   <li>
     <strong>Make sure you're on the right branch and that you have a clean working state.</strong>
-    <li>
+    </li><li>
+      
       Whatever visualizer you're using, figure out how it shows you where your current branch is.  Or, at the command line, type <code class="inline">git status</code> and you should see something like this:
       <code>
         # On branch master <br />
@@ -40,7 +44,9 @@ layout: section
     <strong>Create a new branch to use as a savepoint, but don't switch to it.</strong>
     <ul>
       <li>
+        
         Type <code class="inline">git branch savepoint</code>.  Now, if you type <code class="inline">git status</code> again, you should still see a message that you're on the <em><strong>master</strong></em> branch.
+      
       </li>
     </ul>
   </li>
@@ -48,7 +54,9 @@ layout: section
     <strong>Do the merge.</strong>
     <ul>
       <li>
+        
         Type <code class="inline">git merge spiffy_new_feature</code>.  If you're lucky, there won't be any merge conflicts you can't resolve.
+      
       </li>
       <li><strong>If you want to abort the merge</strong> at this point, just type <code class="inline">git reset --hard</code>.</li>
     </ul>
@@ -57,7 +65,9 @@ layout: section
     <strong>Switch to your visualizer and predict how its view will change when you refresh it.</strong>
     <ul>
       <li>
+        
         For example:
+        
         <ol>
           <li>After a merge, you should see a new commit.</li>
           <li>The new commit should have a message like "Merge branch 'spiffy_new_feature' into master".</li>
@@ -70,7 +80,9 @@ layout: section
     <strong>Refresh your visualizer and see whether your prediction was correct.</strong>
   </li>
   <li>
+    
     Are you happy with the result?
+    
     <ul>
       <li>
         <strong>If YES:</strong> Delete the savepoint.
@@ -80,6 +92,7 @@ layout: section
         <strong>If NO:</strong> Reset your branch to the savepoint.
         <code>git reset --hard savepoint</code>
         If you want to clean up, you can now delete the savepoint with <code class="inline">git branch -d savepoint</code>.
+      
       </li>
     </ul>
   </li>

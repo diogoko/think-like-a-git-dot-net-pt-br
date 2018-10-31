@@ -3,6 +3,8 @@ title:  "Using 'git cherry-pick' to Simulate 'git rebase'"
 layout: section
 ---
 
+
+
 <p>Once you have <code class="inline">git cherry-pick</code> down, you can start off by thinking of <code class="inline">git rebase</code> as being a faster way to cherry-pick all of the commits in a given branch at once, rather than having to type out their IDs separately.</p>
 
 <p><em>(That's only the very beginning of what rebase can do, but I'll write the rest of this section another time.)</em></p>
@@ -16,9 +18,11 @@ layout: section
 <p>Now, I could type this sequence of commands:</p>
 
 <code>
+  
   git checkout foo<br />
   git checkout -b newbar<br />
   git cherry-pick C D E
+
 </code>
 
 <p>In order, these commands:</p>
@@ -38,9 +42,11 @@ layout: section
 <p>Then, I could type this:</p>
 
 <code>
+  
   git checkout bar <br />
   git reset --hard newbar <br />
   git branch -d newbar
+
 </code>
 
 <p>Which would:</p>

@@ -18,6 +18,8 @@ page '/*.txt', layout: false
 
 # General configuration
 
+THE_SITE_URL = '/think-like-a-git-dot-net-pt-br'
+
 ###
 # Helpers
 ###
@@ -29,7 +31,7 @@ helpers do
     qualified_filename = "/#{filename}.html"
     page = sitemap.find_resource_by_path(qualified_filename)
     link_text ||= page.data[:title]
-    link_to link_text, qualified_filename
+    link_to link_text, "#{THE_SITE_URL}/#{qualified_filename}"
   end
 
   def twitter_user(username)
@@ -49,7 +51,7 @@ helpers do
   def nav_list(options = {})
     options.merge!({
       :current_section => current_page.data.title.dasherize,
-      :link_path_template => current_page.data.nav_list_links || '/sections/%s.html',
+      :link_path_template => current_page.data.nav_list_links || "#{THE_SITE_URL}/sections/%s.html",
     })
     toc.nav_list(options)
   end
@@ -121,4 +123,6 @@ configure :build do
 
   # Minify Javascript on build
   # activate :minify_javascript
+
+  set :site_url, THE_SITE_URL
 end

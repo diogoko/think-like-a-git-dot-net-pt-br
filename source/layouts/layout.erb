@@ -10,8 +10,8 @@
   <title><%= current_page.data.title %> // Think Like (a) Git</title>
 
   <!-- CSS -->
-  <link type="text/css" rel="stylesheet" href="/assets/css/style.css" media="screen" />
-  <link type="text/css" rel="stylesheet" href="/assets/css/customizations.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="<%= config[:site_url] %>/assets/css/style.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="<%= config[:site_url] %>/assets/css/customizations.css" media="screen" />
 
   <!-- (why was this here?) -->
   <!-- Hooks -->
@@ -19,10 +19,10 @@
 
   <!-- Javascript -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-  <script type="text/javascript" src="/assets/js/jquery.tools.min.js"></script>
-  <script type="text/javascript" src="/assets/js/superfish.js"></script>
-  <script type="text/javascript" src="/assets/js/jquery.tipTip.min.js"></script>
-  <script type="text/javascript" src="/assets/js/custom.js"></script>
+  <script type="text/javascript" src="<%= config[:site_url] %>/assets/js/jquery.tools.min.js"></script>
+  <script type="text/javascript" src="<%= config[:site_url] %>/assets/js/superfish.js"></script>
+  <script type="text/javascript" src="<%= config[:site_url] %>/assets/js/jquery.tipTip.min.js"></script>
+  <script type="text/javascript" src="<%= config[:site_url] %>/assets/js/custom.js"></script>
 
   <!-- Google Analytics -->
   <script type="text/javascript">
@@ -44,7 +44,7 @@
     <div class="wrapper">
 
       <!-- Static Logo  -->
-      <h1 class="title"><a href="/">Think Like (a) Git</a></h1>
+      <h1 class="title"><a href="<%= config[:site_url] %>">Think Like (a) Git</a></h1>
       <h3 class="subtitle">A Guide for the Perplexed</h3>
 
     </div><!-- #wrapper -->
@@ -55,8 +55,8 @@
 
       <!-- Top Navigation Menu -->
       <ul class="menu-nav-top">
-        <li><a href='/'>Home</a></li>
-        <li><%= link_to('TL;DR', '/tldr.html') %></li>
+        <li><a href='<%= config[:site_url] %>'>Home</a></li>
+        <li><%= link_to('TL;DR', "#{config[:site_url]}/tldr.html") %></li>
         <!-- <li><a>Read In...</a> -->
         <!--   <ul> -->
         <!--     <li><%= page_link('sections/about&#45;this&#45;site', 'AD/HD mode') %></li> -->
@@ -71,8 +71,8 @@
 
       <!-- Top Social Links -->
       <ul class="social-links">
-        <li><a href="mailto:geeksam@gmail.com" title="Email" class="w-tooltip"><img src="/assets/images/icon_email.png" alt="Email" /></a></li>
-        <li><a href="http://twitter.com/geeksam" title="Twitter" class="w-tooltip"><img src="/assets/images/icon_twitter.png" alt="Twitter" /></a></li>
+        <li><a href="mailto:geeksam@gmail.com" title="Email" class="w-tooltip"><img src="<%= config[:site_url] %>/assets/images/icon_email.png" alt="Email" /></a></li>
+        <li><a href="http://twitter.com/geeksam" title="Twitter" class="w-tooltip"><img src="<%= config[:site_url] %>/assets/images/icon_twitter.png" alt="Twitter" /></a></li>
       </ul>
 
     </div><!-- #wrapper -->
@@ -105,7 +105,7 @@
 
       <!-- Footer Copyright -->
       <p>
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="/assets/images2/cc-license-80x15.png" /></a><br />
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="<%= config[:site_url] %>/assets/images2/cc-license-80x15.png" /></a><br />
         <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Think Like (a) Git</span> copyright &copy; 2011-2017 <a xmlns:cc="http://creativecommons.org/ns#" href="http://think-like-a-git.net" property="cc:attributionName" rel="cc:attributionURL">Sam Livingston-Gray</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
       </p>
       <p><br />Original template &copy; 2011 <span>&middot;</span> Vectors Community Theme <span>&middot;</span> All Rights Reserved</p>

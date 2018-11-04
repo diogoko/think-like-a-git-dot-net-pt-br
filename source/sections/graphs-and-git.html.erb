@@ -1,25 +1,18 @@
----
-title:  "Graphs and Git"
-layout: section
----
+--- title: "Grafos e Git" layout: section ---
 
-
-
-<p>The reason I've gone on at some length about graph theory is that a Git repository is one giant graph.</p>
+<p>O motivo de eu ter explicado um bom tanto sobre teoria dos grafos é que um repositório Git é um enorme grafo.</p>
 
 <div class="fr wp-caption pad-left">
   <img src="/assets/images2/graphs-and-git.png" class="no-shadow" />
-  <br /><strong>Git commits (simplified view)</strong>
+  <br /><strong>Commits do Git (visão simplificada)</strong>
 </div>
 
-<p>Most of the time when you interact with Git, you're working with commits in one way or another.  At the surface level, a Git commit consists of two things:  (1) a pointer to the state of your code at some moment in time, and (2) zero or more pointers to "parent" commits.</p>
+<p>Na maior parte do tempo em que você interage com o Git, você está mexendo com commits de um jeito ou de outro. Num nível superficial, um commit do Git consiste de duas coisas: (1) um ponteiro para o estado do seu código num dado momento, e (2) zero ou mais ponteiros para commits "pai".</p>
 
-<p><em>(Hint: the word "pointer" means you're probably talking about a graph.)</em></p>
+<p><em>(Dica: a palavra "ponteiro" significa que provavelmente você está falando de um grafo.)</em></p>
 
-<p><strong>A Git commit is a node in a graph</strong>, and each one of those nodes can point to other nodes that came before them.</p>
+<p><strong>Um commit do Git é um vértice num grafo</strong>, e cada um desses vértices pode apontar para outros vértices que vieram antes dele.</p>
 
 <div class="wp-caption" style="text-align: left; padding: 5px;">
-  
-  By the way:  if you want to learn way more about this than any reasonable human should ever know, I highly recommend Scott Chacon's <a href="https://github.com/pluralsight/git-internals-pdf/releases">"Git Internals" PDF</a>.  Scott's knowledge of Git is... impressive.
-
+  Aliás: se você quer aprender mais sobre isto do que um humano normal deveria saber, eu recomendo fortemente o <a href="https://github.com/pluralsight/git-internals-pdf/releases">PDF "Git Internals"</a> do Scott Chacon. O conhecimento de Git do Scott é... impressionante.
 </div>

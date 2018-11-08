@@ -1,29 +1,17 @@
 ---
-title:  "The Reference Reference"
+title: "A Referência Sobre Referências"
 layout: section
 ---
 
+<p>Como mencionado anteriormente, existem alguns tipos de referências, e todos eles apontam para commits no seu repositório. A única diferença entre elas é como e quando elas se movem. (Quando eu digo que uma referência se move, eu quero dizer que o ID do commit para o qual ela aponta é atualizado.)</p>
 
-
-<p>As previously mentioned, there are a few different kinds of references, and they all point to commits in your repository.  The only difference between them is how and when they move.  (When I say that a reference moves, I mean that the ID of the commit that it points to is updated.)</p>
-
-<p><strong>Local branch references</strong> are specific to a single repository:  your local one.  Commands that affect local branch references include
-  <code class="inline">commit</code>,
-  <code class="inline">merge</code>,
-  <code class="inline">rebase</code>, and
-  <code class="inline">reset</code>.
-
+<p><strong>Referências de branch local</strong> são específicos de um único repositório: o seu repositório local. Comandos que afetam a referência de branch local incluem <code class="inline">commit</code>, <code class="inline">merge</code>, <code class="inline">rebase</code>, e <code class="inline">reset</code>.
 </p>
 
-<p><strong>Remote branch references</strong> are also specific to a single repository, but one that's previously been defined as a remote.  Commands that affect remote branch references include
-  <code class="inline">fetch</code> and
-  <code class="inline">push</code>.
-
+<p><strong>Referências de branch remotas</strong> também são específicas de um único repositório, mas de um que foi anteriormente definido como remoto. Comandos que afetam referências de branch remotas includm <code class="inline">fetch</code> and <code class="inline">push</code>.
 </p>
 
-<p><em>(The <code class="inline">pull</code> command is a special case: it combines <code class="inline">fetch</code> and either a <code class="inline">merge</code> or a <code class="inline">rebase</code>, depending on how you've got Git configured.)</em></p>
+<p><em>(O comando <code class="inline">pull</code> é um caso especial: ele combina <code class="inline">fetch</code> com ou um <code class="inline">merge</code> ou um <code class="inline">rebase</code>, dependendo de como você configurou o Git.)</em></p>
 
-<p><strong>Tag references</strong> are basically like branch references that never move.  <strong>Once you've created a tag, it will never change</strong> (unless you explicitly update it using the <code class="inline">--force</code> option).  This behavior makes them useful for marking specific versions of a software package, or marking exactly what got deployed to a production server on a particular date.  As of this writing, I only know of one command that affects tags.  As you might guess, it's
-  <code class="inline">tag</code>.
-
+<p><strong>Referências de tag</strong> são basicamente como referências de branch que nunca se movem. <strong>Depois que você cria uma tag, ela nunca vai mudar</strong> (a não ser que você explicitamente a altere usando a opção <code class="inline">--force</code>). Este comportamento as torna úteis para marcar versões específicas de um pacote de software, ou marcar exatamente o que foi publicado em um servidor de produção em uma data específica. No momento em que escrevo, eu sei de apenas um comando que afeta tags. Como você pode ter adivinhado, é <code class="inline">tag</code>.
 </p>

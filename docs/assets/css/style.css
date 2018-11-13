@@ -126,7 +126,7 @@ blockquote, q {
 }
 
 .wrap-shadow {
-	background: url(/assets//assets/images/slider_bg.png) repeat-x bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/slider_bg.png) repeat-x bottom;
 }
 
 
@@ -159,11 +159,11 @@ blockquote, q {
 
 @font-face {
 	font-family: 'LeagueGothicRegular';
-	src: url('/assets/fonts/League_Gothic-webfont.eot');                               /* IE9 Compatibility Modes */
-	src: url('/assets/fonts/League_Gothic-webfont.eot?iefix') format('eot'),           /* IE6-IE8 */
-		url('/assets/fonts/League_Gothic-webfont.woff') format('woff'),                /* Modern Browsers */
-		url('/assets/fonts/League_Gothic-webfont.ttf')  format('truetype'),            /* Safari, Android, iOS */
-		url('/assets/fonts/League_Gothic-webfont.svg#webfontbDMP4rcs') format('svg');  /* Legacy iOS */
+	src: url('/think-like-a-git-dot-net-pt-br/assets/fonts/League_Gothic-webfont.eot');                               /* IE9 Compatibility Modes */
+	src: url('/think-like-a-git-dot-net-pt-br/assets/fonts/League_Gothic-webfont.eot?iefix') format('eot'),           /* IE6-IE8 */
+		url('/think-like-a-git-dot-net-pt-br/assets/fonts/League_Gothic-webfont.woff') format('woff'),                /* Modern Browsers */
+		url('/think-like-a-git-dot-net-pt-br/assets/fonts/League_Gothic-webfont.ttf')  format('truetype'),            /* Safari, Android, iOS */
+		url('/think-like-a-git-dot-net-pt-br/assets/fonts/League_Gothic-webfont.svg#webfontbDMP4rcs') format('svg');  /* Legacy iOS */
 	font-weight: normal;
 	font-style: normal;
 	}
@@ -324,14 +324,14 @@ a:hover {
 
 #nav-top {
 	height: 36px;
-	background: url(/assets/images/bg_body_blue.png) repeat-x;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_body_blue.png) repeat-x;
 	z-index: 4;
 	position: relative;
 	}
 
 #nav-top ul {
 	margin: 0;
-	background: url(/assets/images/bg_nav_top.png) left top no-repeat;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_nav_top.png) left top no-repeat;
 	height: 36px;
 	padding-left: 2px;
 	padding-right: 2px;
@@ -351,7 +351,7 @@ a:hover {
 	font-size: 13px;
 	float: left;
 	height: 36px;
-	background: url(/assets/images/bg_nav_top.png) right top no-repeat;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_nav_top.png) right top no-repeat;
 	position: relative;
 	}
 
@@ -429,7 +429,7 @@ a:hover {
 
 #nav-top ul ul li {
 	outline: 0;
-	background: url(/assets/images/bg_nag_sub.png) repeat-x center top !important;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_nag_sub.png) repeat-x center top !important;
 	height: 39px;
 	padding: 0;
 	margin: 0;
@@ -455,7 +455,7 @@ a:hover {
 	}
 
 #nav-top ul ul li.sfHover > a {
-	background: url(/assets/images/bg_nav_sub_arrow.png) no-repeat 160px center !important;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_nav_sub_arrow.png) no-repeat 160px center !important;
 	}
 
 #nav-top ul ul li.sfHover,
@@ -482,7 +482,7 @@ a:hover {
 
 #header {
 	height: 100px;
-	background: url(/assets/images/header_bg.png) repeat-x bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/header_bg.png) repeat-x bottom;
 	z-index: 3;
 	position: relative;
 	}
@@ -523,7 +523,7 @@ a:hover {
 
 #main-menu {
 	height: 54px;
-	background: url(/assets/images/nav_bg.png) repeat-x;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/nav_bg.png) repeat-x;
 	z-index: 2;
 	position: relative;
 	}
@@ -609,7 +609,7 @@ a:hover {
 
 #main-menu ul ul li {
 	outline: 0;
-	background: url(/assets/images/bg_nag_sub.png) repeat-x center top;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_nag_sub.png) repeat-x center top;
 	height: 39px;
 	padding: 0;
 	margin: 0;
@@ -622,7 +622,7 @@ a:hover {
 	}
 
 #main-menu ul ul li.sfHover > a {
-	background: url(/assets/images/bg_nav_sub_arrow.png) no-repeat 160px center;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_nav_sub_arrow.png) no-repeat 160px center;
 	}
 
 #main-menu ul ul li a {
@@ -664,7 +664,7 @@ a:hover {
 -------------------------------------*/
 
 #slider {
-	background: url(/assets/images/pattern_bg.png);
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/pattern_bg.png);
 	position: relative;
 	top: -2px;
 	z-index: 1;
@@ -675,7 +675,7 @@ a:hover {
 	width: 21px;
 	height: 21px;
 	display: block;
-	background: url(/assets/images/bg_slider_arrow_left.png) no-repeat center center;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_slider_arrow_left.png) no-repeat center center;
 	top: 150px;
 	left: -51px;
 	}
@@ -685,7 +685,7 @@ a:hover {
 	width: 21px;
 	height: 21px;
 	display: block;
-	background: url(/assets/images/bg_slider_arrow_right.png) no-repeat center center;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_slider_arrow_right.png) no-repeat center center;
 	top: 150px;
 	right: -51px;
 	}
@@ -758,7 +758,7 @@ a:hover {
 	overflow: hidden;
 	padding-bottom: 50px;
 	margin-bottom: 50px;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	}
 
 .post .post-image {
@@ -838,7 +838,7 @@ a:hover {
 
 .post .border {
 	height: 18px;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	border-bottom: 1px solid #f1f1f1;
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -921,7 +921,7 @@ a:hover {
 	}
 
 .post .entry-content pre {
-	background: url(/assets/images/pre_bg.png);
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/pre_bg.png);
 	padding: 20px;
 	border: 1px solid #ddd;
 	white-space: pre;
@@ -991,14 +991,14 @@ a:hover {
 	color: #515151;
 	font-size: 13px;
 	font-weight: bold;
-	background: url(/assets/images/button-left.png) no-repeat left;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/button-left.png) no-repeat left;
 	display: inline-block;
 	padding: 0 0 0 12px;
 	text-decoration: none;
 	}
 
 .post .read-more a span {
-	background: url(/assets/images/button-right.png) no-repeat right;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/button-right.png) no-repeat right;
 	display: inline-block;
 	padding: 10px 12px 10px 0;
 	}
@@ -1019,7 +1019,7 @@ a:hover {
 
 .post-meta.w-border-bottom {
 	border-bottom: 1px solid #f1f1f1;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	padding-bottom: 30px;
 	}
 
@@ -1028,7 +1028,7 @@ a:hover {
 	font-weight: bold;
 	line-height: 21px;
 	border-bottom: 1px solid #f1f1f1;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	padding-bottom: 20px;
 	margin-bottom: 30px;
 	}
@@ -1058,7 +1058,7 @@ a:hover {
 
 .post-author.w-border-bottom {
 	border-bottom: 1px solid #f1f1f1;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	padding-bottom: 30px;
 	}
 
@@ -1067,7 +1067,7 @@ a:hover {
 	font-weight: bold;
 	line-height: 21px;
 	border-bottom: 1px solid #f1f1f1;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	padding-bottom: 20px;
 	margin-bottom: 30px;
 	}
@@ -1120,7 +1120,7 @@ a:hover {
 	font-weight: bold;
 	line-height: 21px;
 	border-bottom: 1px solid #f1f1f1;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	padding-bottom: 20px;
 	margin-bottom: 30px;
 	}
@@ -1174,7 +1174,7 @@ a:hover {
 	font-weight: bold;
 	line-height: 21px;
 	border-bottom: 1px solid #f1f1f1;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	padding-bottom: 20px;
 	margin-bottom: 30px;
 	padding-top: 5px;
@@ -1210,14 +1210,14 @@ a:hover {
 
 .post-comments ul.comment-controls a.current,
 .post-comments ul.comment-controls li.current a {
-	background: url(/assets/images/button-left.png) no-repeat left;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/button-left.png) no-repeat left;
 	display: block;
 	padding: 0 0 0 12px;
 	text-decoration: none;
 	}
 
 .post-comments ul.comment-controls a.current span {
-	background: url(/assets/images/button-right.png) no-repeat right;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/button-right.png) no-repeat right;
 	display: block;
 	padding: 10px 12px 10px 0;
 	}
@@ -1332,7 +1332,7 @@ a:hover {
 	font-weight: bold;
 	line-height: 21px;
 	border-bottom: 1px solid #f1f1f1;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	padding-bottom: 20px;
 	margin-bottom: 30px;
 	}
@@ -1342,7 +1342,7 @@ a:hover {
 	width: 240px;
 	height: 35px;
 	border: 0;
-	background: url(/assets/images/search_inp.png) no-repeat;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/search_inp.png) no-repeat;
 	color: #606060;
 	font-style: italic;
 	padding-left: 14px;
@@ -1353,7 +1353,7 @@ a:hover {
 	width: 459px;
 	height: 157px;
 	border: 0;
-	background: url(/assets/images/bg_textarea.png) no-repeat;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_textarea.png) no-repeat;
 	color: #606060;
 	font-style: italic;
 	padding: 10px;
@@ -1370,7 +1370,7 @@ a:hover {
 
 .post-respond #submit,
 #respond #submit {
-	background: url(/assets/images/button-left.png) no-repeat left, url(/assets/images/button-right.png) no-repeat right;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/button-left.png) no-repeat left, url(/assets/images/button-right.png) no-repeat right;
 	display: inline-block;
 	padding: 10px 15px;
 	text-decoration: none;
@@ -1410,7 +1410,7 @@ p.logged-in-as {
 .wp-pagenavi .current,
 .wp-pagenavi .nextpostslink,
 .wp-pagenavi .previouspostslink {
-	background: url(/assets/images/button-left.png) no-repeat left;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/button-left.png) no-repeat left;
 	display: inline-block;
 	padding: 0 0 0 15px;
 	text-decoration: none;
@@ -1419,7 +1419,7 @@ p.logged-in-as {
 .wp-pagenavi .current span,
 .wp-pagenavi .nextpostslink span,
 .wp-pagenavi .previouspostslink span {
-	background: url(/assets/images/button-right.png) no-repeat right;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/button-right.png) no-repeat right;
 	display: inline-block;
 	padding: 10px 15px 10px 0;
 	}
@@ -1461,7 +1461,7 @@ p.logged-in-as {
 	font-weight: bold;
 	border-bottom: 1px solid #f1f1f1;
 	padding-bottom: 20px;
-	background: url(/assets/images/bg_widget_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_widget_shadow.png) no-repeat center bottom;
 	}
 
 #sidebar .widget .subtitle,
@@ -1482,7 +1482,7 @@ p.logged-in-as {
 
 #sidebar .widget-stats {
 	overflow: hidden;
-	background: url(/assets/images/bg_widget_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_widget_shadow.png) no-repeat center bottom;
 	}
 
 #sidebar .widget-stats a {
@@ -1578,7 +1578,7 @@ p.logged-in-as {
 	margin-bottom: 50px;
 	padding-bottom: 50px;
 	border-bottom: 1px solid #f1f1f1;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	}
 
 body.single-post .widget-content-banner .ad- {
@@ -1592,7 +1592,7 @@ body.single-post .widget-content-banner .ad- {
 
 #sidebar .widget-search,
 #sidebar .widget_search {
-	background: url(/assets/images/bg_widget_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_widget_shadow.png) no-repeat center bottom;
 	padding-top: 20px;
 	border-top: 1px solid #f1f1f1;
 	}
@@ -1602,7 +1602,7 @@ body.single-post .widget-content-banner .ad- {
 	width: 230px;
 	height: 35px;
 	border: 0;
-	background: url(/assets/images/search_inp.png) top left !important;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/search_inp.png) top left !important;
 	color: #606060;
 	font-size: 13px;
 	font-style: italic;
@@ -1615,7 +1615,7 @@ body.single-post .widget-content-banner .ad- {
 	height: 35px;
 	border: 0;
 	margin-left: 10px;
-	background: url(/assets/images/search_btn.png) top left !important;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/search_btn.png) top left !important;
 	cursor: pointer;
 	}
 
@@ -1638,7 +1638,7 @@ body.single-post .widget-content-banner .ad- {
 	padding-bottom: 10px;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #f1f1f1;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	}
 
 #sidebar .widget-posts ul.tabs li,
@@ -1668,7 +1668,7 @@ body.single-post .widget-content-banner .ad- {
 #sidebar .widget-archive ul.tabs a.current,
 #sidebar .widget-posts ul.tabs li.current a,
 #sidebar .widget-archive ul.tabs li.current a {
-	background: url(/assets/images/button-left.png) no-repeat left;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/button-left.png) no-repeat left;
 	display: block;
 	padding: 0 0 0 12px;
 	text-decoration: none;
@@ -1676,7 +1676,7 @@ body.single-post .widget-content-banner .ad- {
 
 #sidebar .widget-posts ul.tabs a.current span,
 #sidebar .widget-archive ul.tabs a.current span {
-	background: url(/assets/images/button-right.png) no-repeat right;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/button-right.png) no-repeat right;
 	display: block;
 	padding: 10px 12px 10px 0;
 	}
@@ -1860,7 +1860,7 @@ body.single-post .widget-content-banner .ad- {
 	}
 
 .widget-enews input[type="text"] {
-	background: url(/assets/images/widget_enews_inp.png) no-repeat top left !important;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/widget_enews_inp.png) no-repeat top left !important;
 	border: none;
 	font-size: 13px;
 	font-style: italic;
@@ -1873,7 +1873,7 @@ body.single-post .widget-content-banner .ad- {
 	}
 
 .widget-enews input[type="submit"] {
-	background: url(/assets/images/widget_enews_btn.png) no-repeat  top left !important;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/widget_enews_btn.png) no-repeat  top left !important;
 	border: none;
 	font-size: 13px;
 	font-weight: bold;
@@ -1892,11 +1892,11 @@ body.single-post .widget-content-banner .ad- {
 -------------------------------------*/
 
 #subfooter {
-	background: url(/assets/images/pattern_bg.png);
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/pattern_bg.png);
 	}
 
 #subfooter .wrap-shadow {
-	background: url(/assets/images/footer_bg.png) repeat-x top;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/footer_bg.png) repeat-x top;
 	padding-top: 50px;
 	}
 
@@ -1923,7 +1923,7 @@ body.single-post .widget-content-banner .ad- {
 	font-style: italic;
 	position: relative;
 	top: -3px;
-	background: url(/assets/images/slider_bg.png) repeat-x top;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/slider_bg.png) repeat-x top;
 	}
 
 #footer p {
@@ -2035,7 +2035,7 @@ body.page-template-template-sitemap-php .archive-lists h4 {
 
 .divider {
 	border-bottom: 1px solid #f1f1f1;
-	background: url(/assets/images/bg_post_shadow.png) no-repeat center bottom;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_post_shadow.png) no-repeat center bottom;
 	}
 
 
@@ -2044,7 +2044,7 @@ body.page-template-template-sitemap-php .archive-lists h4 {
 -------------------------------------*/
 
 .is-ie #respond #submit {
-	background: url(/assets/images/button-right.png) no-repeat right;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/button-right.png) no-repeat right;
 	}
 
 .is-ie #respond label {
@@ -2103,7 +2103,7 @@ body.page-template-template-sitemap-php .archive-lists h4 {
 /*----- 10.1. RED -----*/
 
 body.red #nav-top {
-	background: url(/assets/images/bg_body_red.png) repeat-x;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_body_red.png) repeat-x;
 	}
 
 body.red #nav-top ul {
@@ -2122,7 +2122,7 @@ body.red a {
 /*----- 10.2. GREEN -----*/
 
 body.green #nav-top {
-	background: url(/assets/images/bg_body_green.png) repeat-x;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_body_green.png) repeat-x;
 	}
 
 body.green #nav-top ul {
@@ -2141,7 +2141,7 @@ body.green a {
 /*----- 10.3. ORANGE -----*/
 
 body.orange #nav-top {
-	background: url(/assets/images/bg_body_orange.png) repeat-x;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_body_orange.png) repeat-x;
 	}
 
 body.orange #nav-top ul {
@@ -2160,7 +2160,7 @@ body.orange a {
 /*----- 10.4. PURPLE -----*/
 
 body.purple #nav-top {
-	background: url(/assets/images/bg_body_purple.png) repeat-x;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_body_purple.png) repeat-x;
 	}
 
 body.purple #nav-top ul {
@@ -2179,7 +2179,7 @@ body.purple a {
 /*----- 10.5. AQUA -----*/
 
 body.aqua #nav-top {
-	background: url(/assets/images/bg_body_aqua.png) repeat-x;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_body_aqua.png) repeat-x;
 	}
 
 body.aqua #nav-top ul {
@@ -2198,7 +2198,7 @@ body.aqua a {
 /*----- 10.6. BROWN -----*/
 
 body.brown #nav-top {
-	background: url(/assets/images/bg_body_brown.png) repeat-x;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_body_brown.png) repeat-x;
 	}
 
 body.brown #nav-top ul {
@@ -2217,7 +2217,7 @@ body.brown a {
 /*----- 10.7. GRAY -----*/
 
 body.gray #nav-top {
-	background: url(/assets/images/bg_body_gray.png) repeat-x;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_body_gray.png) repeat-x;
 	}
 
 body.gray #nav-top ul {
@@ -2236,7 +2236,7 @@ body.gray a {
 /*----- 10.8. BLACK -----*/
 
 body.black #nav-top {
-	background: url(/assets/images/bg_body_black.png) repeat-x;
+	background: url(/think-like-a-git-dot-net-pt-br/assets/images/bg_body_black.png) repeat-x;
 	}
 
 body.black #nav-top ul {

@@ -18,19 +18,19 @@ layout: section
 <p>Let's go back to this example from the <%= section_link('Reachability') %> section:</p>
 
 <div class="wp-caption">
-  <img src="/assets/images2/reachability-example.png" class="no-shadow" />
+  <img src="/think-like-a-git-dot-net-pt-br/assets/images2/reachability-example.png" class="no-shadow" />
 </div>
 
 <p>If you were at node H in this graph, and you typed <code class="inline">git cherry-pick E</code> <em>(yes, you'd actually type part or all of the SHA for the commit, but for simplicity's sake, I'll just use the labels that are already here)</em>, you'd wind up with a copy of commit E—let's call it "E prime" or <strong>E'</strong>—that pointed to <strong>H</strong> as its parent, like so:</p>
 
 <div class="wp-caption">
-  <img src="/assets/images2/cherry-pick-example-1.png" class="no-shadow" />
+  <img src="/think-like-a-git-dot-net-pt-br/assets/images2/cherry-pick-example-1.png" class="no-shadow" />
 </div>
 
 <p>Or, if you typed something like <code class="inline">git cherry-pick C D E</code>, you'd wind up with this when you were done:</p>
 
 <div class="wp-caption">
-  <img src="/assets/images2/cherry-pick-example-2.png" class="no-shadow" />
+  <img src="/think-like-a-git-dot-net-pt-br/assets/images2/cherry-pick-example-2.png" class="no-shadow" />
 </div>
 
 <p>The important thing to notice here is that Git has copied changes made in one place, and replayed them somewhere else.</p>
@@ -41,7 +41,7 @@ layout: section
 <div class="wp-caption">
   <% (1..7).each do |i| -%>
     <div id="cherry-pick-slideshow-slide-<%= i %>" class="cherry-pick-slideshow-slide" style="text-align: left;">
-      <img src="/assets/images2/cherry-pick-slideshow/cherry-pick-step-&lt;%= i %&gt;.png" class="no-shadow" />
+      <img src="/think-like-a-git-dot-net-pt-br/assets/images2/cherry-pick-slideshow/cherry-pick-step-&lt;%= i %&gt;.png" class="no-shadow" />
       <div style="text-align: center;">
         
         Step <%= i %>

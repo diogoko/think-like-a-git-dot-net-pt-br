@@ -87,21 +87,17 @@
           <div class="two_third">
               <h2>Garbage Collection</h2>
 
-  
+  <p>Imagine a seguinte cena: você escreveu algum código e fez commit. Aí você percebe que esqueceu de rodar os testes, e você os executa, e eles mostram um erro de sintaxe. Ou você percebe um erro de digitação. Por qualquer motivo, você não tinha terminando quando achou que tinha terminado.
 
-<p>Imagine this scenario:  you write some code and check it in.  Then, you realize you forgot to run the tests, so you run them, and they uncover a syntax error.  Or you spot a typo.  For whatever reason, you weren't done when you thought you were done.
+<p>Antes quando eu usava o Subversion, a única coisa a fazer sobre isso era adicionar a nova alteração num novo commit. Geralmente, eu acabava ficando com três ou quatro versões no meu histórico. A primeira diria "adicionar funcionalidade X", e as próximas teriam mensagens como "opa, erro de digitação" ou "correção de erro" ou "esqueci de rodar os testes".</p>
 
+<p>O Git te dá outra opção: você pode incluir a nova alteração no commit anterior usando <code class="inline">git commit --amend</code>. Isso deixa todas as suas alterações relacionadas unidas num único commit, para que você possa entendê-lo mais rápido quando estiver revisando-o mais tarde.</p>
 
+<p>Eis outro fato interessante sobre os commits do Git: o ID de um commit é um <a href="http://en.wikipedia.org/wiki/SHA-1">hash SHA-1</a> de vários pedaços de informação: o conteúdo do commit, <strong>e os IDs dos seus commits pais</strong>.</p>
 
-<p>Back when I used Subversion, the only thing to be done about this was to add the new change in another commit.  Often, I'd wind up with three or four versions in my history.  The first one would say "add feature X", and the next several would have messages like "oops, found typo" or "bugfix" or "forgot to run tests".</p>
+<p>Isso significa que, quando você usa <code class="inline">git commit --amend</code>, você na verdade está construindo um commit completamente diferente, e apontando a referência do seu branch local para ele em vez do original. <strong>O primeiro commit que você fez ainda está lá no disco, e você ainda pode recuperá-lo</strong> (mais sobre isso depois). Entretando, no interesse de não embaralhar a sua visualização, nem <code class="inline">git log</code> nem seu visualizador Git o mostrará, porque não é parte do histórico de algo [que o Git entenda] que você precise.</p>
 
-<p>Git gives you another option:  you can tack the new change on to the previous commit using <code class="inline">git commit --amend</code>.  This keeps all of your related changes bundled together in one commit, so you can understand it more quickly when you're reviewing it later.</p>
-
-<p>Here's another interesting fact about Git commits:  a commit's ID is a <a href="http://en.wikipedia.org/wiki/SHA-1">SHA-1 hash</a> of several pieces of information:  the contents of the commit, <strong>and the IDs of its parent commits.</strong></p>
-
-<p>Which means that, when you use <code class="inline">git commit --amend</code>, you're actually building a completely different commit, and pointing your local branch reference to it instead.  <strong>The first commit you made is still there on disk, and you can still get back to it</strong> (more on this later).  However, in the interest of not cluttering up your view, neither <code class="inline">git log</code> nor your Git visualizer will show it to you, because it's not part of the history of something [Git thinks] you care about.</p>
-
-<p>Eventually, Git will decide that it's time to run <a href="http://en.wikipedia.org/wiki/Garbage_collection_(computer_science)#Reachability_of_an_object">garbage collection</a>.  (You can trigger this process yourself, using <code class="inline">git gc</code>.)  Starting from every branch and every tag, Git walks back through the graph, building a list of every commit it can reach.  Once it's reached the end of every path, it deletes all the commits it didn't visit.</p>
+<p>Em algum momento, o Git vai decidir que é hora de rodar a <a href="http://en.wikipedia.org/wiki/Garbage_collection_(computer_science)#Reachability_of_an_object">coleta de lixo</a>. (Você mesmo pode iniciar este processo, usando <code class="inline">git gc</code>.) Iniciando de cada branch e cada tag, o Git caminha de volta pelo grafo, construindo uma lista de todos os commits que ele consegue alcançar. Depois que ele acha o fim de cada caminho, ele exclui todos os commits que não visitou.</p>
 
 
   <div class="clear"></div><div class="linear_nav_links"><a href="/sections/graphs-and-git/making-sense-of-the-display.html" class="prev">&larr; Making Sense of the Display</a><link rel="prev" href="/sections/graphs-and-git/making-sense-of-the-display.html" /><a href="/sections/experimenting-with-git.html" class="next">Experimenting With Git &rarr;</a><link rel="next" href="/sections/experimenting-with-git.html" /></div>

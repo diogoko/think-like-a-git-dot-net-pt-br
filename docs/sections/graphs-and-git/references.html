@@ -87,21 +87,19 @@
           <div class="two_third">
               <h2>References</h2>
 
-  
+  <p>Talvez você tenha percebido os rótulos <em>bem coloridos</em> na captura de tela do GitX na página anterior. (Se não, volte e dê outra olhada. Eu espero.) Esses rótulos são o jeito que o GitX usa  para mostrar <strong>referências</strong>.</p>
 
-<p>You may have noticed the <em>very colorful</em> labels in the GitX screenshot on the previous page. (If not, go back and have another peek. I'll wait.)  Those labels are GitX's way of showing <strong>references.</strong></p>
+<p>Eu não quero gastar muito tempo falando o que cada cor significa, porque essa representação em particular é específica do GitX e você pode estar usando algum outro programa. Independente de como seu visualizador os represente, você precisa saber o que elas significam. <em>(Que rufem os tambores!)</em></p>
 
-<p>I don't want to spend too much time talking about what each color means, because that particular representation is specific to GitX and you might be using something else.  But however your visualizer represents them, you need to know what they are.  <em>(Can I get a drumroll, please?)</em></p>
+<p><strong>Referências são ponteiros para commits.</strong></p>
 
-<p><strong>References are pointers to commits.</strong></p>
+<p>Referências vêm em vários sabores: <strong>branch local</strong>, <strong>branch remoto</strong>, e <strong>tag</strong>.</p>
 
-<p>References come in several flavors:  <strong>local branch,</strong> <strong>remote branch,</strong> and <strong>tag.</strong></p>
+<p>No disco, uma <em><strong>referência de branch local</strong></em> consiste simplesmente em um arquivo no diretório .git/refs/heads do seu projeto. Este arquivo contém o identificador de 40 bytes do commit para o qual a referência aponta... e só. <strong>O arquivo inteiro tem 40 bytes.</strong></p>
 
-<p>On disk, a <em><strong>local branch reference</strong></em> consists entirely of a file in your project's .git/refs/heads directory.  This file contains the 40-byte identifier of the commit that the reference points to... and that's it.  <strong>The entire file is 40 bytes.</strong></p>
+<p>Você pode ter ouvido falar sobre como o Git permite "branching barato". Isso é (parte do) que eles querem dizer.  Criar um branch no Git significa apenas escrever 40 bytes para o disco, e é por isso que <code class="inline">git branch foo</code> é tão rápido.</p>
 
-<p>You might have heard people talk about how Git allows "cheap branching."  This is (part of) what they mean.  Creating a branch in Git just means writing 40 bytes to disk, which is why <code class="inline">git branch foo</code> is so freaking fast.</p>
-
-<p>What's <em><strong>really</strong></em> interesting about references, though, is how they behave.  So, let's move on.</p>
+<p>O que é <em><strong>realmente</strong></em> interessante sobre referências, porém, é como elas se comportam. Então, vamos em frente.</p>
 
 
   <div class="clear"></div><div class="linear_nav_links"><a href="/sections/graphs-and-git/visualizing-your-git-repository.html" class="prev">&larr; Visualizing Your Git Repository</a><link rel="prev" href="/sections/graphs-and-git/visualizing-your-git-repository.html" /><a href="/sections/graphs-and-git/the-reference-reference.html" class="next">The Reference Reference &rarr;</a><link rel="next" href="/sections/graphs-and-git/the-reference-reference.html" /></div>

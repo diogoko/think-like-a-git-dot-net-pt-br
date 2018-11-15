@@ -5,16 +5,16 @@ layout: section
 
 
 
-<p>Git's <code class="inline">rebase</code> command was one of those things that it took me forever to figure out.  This was partly because I just had a lot to learn about managing branches in general, but it was also partly because it seemed like the only time people bothered to write about rebase was to say <%= section_link('example-4-lsd-and-chainsaws', 'how incredibly weird and dangerous it was') %>.</p>
+<p>O comando <code class="inline">rebase</code> do Git foi uma daquelas coisas que eu levei uma eternidade para entender. Isso foi em parte porque eu tinha muita coisa a aprender sobre gerenciar branches em geral, mas também em parte porque parecia que as pessoas só se preocupavam em escrever sobre rebase quando era para dizer <%= section_link('example-4-lsd-and-chainsaws', 'how incredibly weird and dangerous it was') %>.</p>
 
-<p>This is a damn shame, because <strong>rebase is the single most useful command I use in Git</strong>.  More importantly, <strong>it's actually pretty easy to understand once you get the hang of it.</strong></p>
+<p>Isso é uma grande pena, porque <strong>o rebase é o comando mais útil que eu uso no Git</strong>. Mais importante, <strong>na verdade é bem fácil de entender depois que você pega o jeito da coisa.</strong></p>
 
-<h3>Danger, Will Robinson!</h3>
+<h3>Perido, Will Robinson!</h3>
 
-<p>I've tried to demystify rebase in this section, and I do plan to write up a strategy for experimenting with rebase, just as I have with merge.  However, I recently realized that I forgot to mention something very important about rebase:  <strong>it is generally considered rude to rewrite history in public!</strong></p>
+<p>Eu tentei desmistificar o rebase nesta seção, e eu planejo descrever uma estratégia para experimentar com o rebase, do mesmo jeito que eu fiz com o merge. Entretanto, eu percebi recentemente que eu esqueci de mencionar algo muito importante sobre o rebase: <strong>geralmente é considerado grosseria reescrever o histórico em público!</strong></p>
 
-<p>Before you start using rebase in a shared repository, make sure <strong>everyone</strong> who works on your project is comfortable working with rebase.  You might also consider changing everyone's default pull strategy to "rebase" instead of "merge".</p>
+<p>Antes de começar a usar rebase num repositório compartilhado, tenha certeza de que <strong>todo mundo</strong> que trabalha no seu projeto está confortável usando o rebase. Você também pode considerar trocar a estratégia de pull de todo mundo para "rebase" em vez de "merge".</p>
 
-<h3>End of Public Service Announcement.</h3>
+<h3>Fim do Anúncio de Utilidade Pública.</h3>
 
-<p>With that said, I'm going to take a brief digression, because I think it's much easier to explain rebase in the context of another Git command:  <code class="inline">git cherry-pick</code>.</p>
+<p>Dito isso, eu vou fazer uma breve divagação, porque eu acho muito mais fácil explicar o rebase no contexto de outro comando Git: <code class="inline">git cherry-pick</code>.</p>

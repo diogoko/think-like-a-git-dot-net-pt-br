@@ -89,17 +89,17 @@
 
   
 
-<p>Once you have <code class="inline">git cherry-pick</code> down, you can start off by thinking of <code class="inline">git rebase</code> as being a faster way to cherry-pick all of the commits in a given branch at once, rather than having to type out their IDs separately.</p>
+<p>Depois que você tem o <code class="inline">git cherry-pick</code> resolvido, você pode começar a pensar no <code class="inline">git rebase</code> como uma maneira mais rápida de fazer cherry-pick de todos os commits de um branch de uma vez, em vez de ter que digitar os seus IDs separadamente.</p>
 
-<p><em>(That's only the very beginning of what rebase can do, but I'll write the rest of this section another time.)</em></p>
+<p><em>(Isso é apenas o início do que o rebase pode fazer, mas eu vou escrever o resto desta seção outra hora.)</em></p>
 
-<p>Let's go back to our trusty example, but this time add some branches...</p>
+<p>Vamos voltar ao nosso exemplo, mas desta vez adicionar alguns branches...</p>
 
 <div class="wp-caption">
   <img src="/think-like-a-git-dot-net-pt-br/assets/images2/before-rebase.png" class="no-shadow" />
 </div>
 
-<p>Now, I could type this sequence of commands:</p>
+<p>Agora, eu poderia digitar esta sequência de comandos:</p>
 
 <code>
   
@@ -109,21 +109,21 @@
 
 </code>
 
-<p>In order, these commands:</p>
+<p>Nessa ordem, esses comandos:</p>
 
 <ul class="full-size">
-  <li>make sure we're at <strong>H</strong> <em>(because 'foo' points to it)</em>,</li>
-  <li>create <strong>and check out</strong> a temporary branch called "newbar", also pointing at <strong>H</strong>,</li>
-  <li>apply the changes from <strong>C</strong>, <strong>D</strong>, and <strong>E</strong>, creating new commits <strong>C'</strong>, <strong>D'</strong>, and <strong>E'</strong>, and update the "newbar" branch so it points at <strong>E'</strong>.</li>
+  <li>garantem que estamos em <strong>H</strong> <em>(porque 'foo' aponta para ele)</em>,</li>
+  <li>criam <strong>e fazem o checkout</strong> de um branch temporário chamado "newbar", também apontando para <strong>H</strong>,</li>
+  <li>aplicam as mudanças de <strong>C</strong>, <strong>D</strong>, e <strong>E</strong>, criando os novos commits <strong>C'</strong>, <strong>D'</strong>, e <strong>E'</strong>, e atualizam o branch "newbar" para que ele aponte para <strong>E'</strong>.</li>
 </ul>
 
-<p>Which would give me a repository that looked like this:</p>
+<p>O que me daria um repositório que pareceria com isso:</p>
 
 <div class="wp-caption">
   <img src="/think-like-a-git-dot-net-pt-br/assets/images2/cherry-pick-qua-rebase-example-midpoint.png" class="no-shadow" />
 </div>
 
-<p>Then, I could type this:</p>
+<p>Então, eu poderia digitar isso:</p>
 
 <code>
   
@@ -133,25 +133,25 @@
 
 </code>
 
-<p>Which would:</p>
+<p>O que:</p>
 
 <ul class="full-size">
-  <li>Switch to the branch called "bar",</li>
-  <li>Forcibly move the "bar" branch pointer so that it pointed to the same place as the "newbar" branch (and, thanks to the --hard flag, update my working directory to match the new location), and</li>
-  <li>Delete the temporary "newbar" branch.</li>
+  <li>Trocaria para o branch chamado "bar",</li>
+  <li>Forçaria o ponteiro do branch "bar" para que ele apontasse para o mesmo local que o branch "newbar" (e, graças ao flag --hard, atualizaria o meu diretório de trabalho para ficar igual ao novo local), e</li>
+  <li>Deletaria o branch temporário "newbar".</li>
 </ul>
 
-<p>And leave my repository looking like this <em>(note that the original <strong>D</strong> and <strong>E</strong> nodes are no longer reachable, because no branch points to them)</em>:</p>
+<p>E deixaria o meu repositório parecido com isso <em>(note que os vértices <strong>D</strong> e <strong>E</strong> originais não são mais alcançáveis, já que nenhum branch aponta para eles)</em>:</p>
 
 <div class="wp-caption">
   <img src="/think-like-a-git-dot-net-pt-br/assets/images2/cherry-pick-qua-rebase-example-endpoint.png" class="no-shadow" />
 </div>
 
-<p><strong>Or,</strong> I could have accomplished all that by typing this instead:</p>
+<p><strong>Ou,</strong> eu poderia ter conseguido fazer tudo isso digitando o seguinte:</p>
 
 <code>git rebase foo bar</code>
 
-<p>In other words, 'git rebase' (in this form) is a shortcut that lets you pick up entire sections of a repository and move them somewhere else.</p>
+<p>Em outras palavras, 'git rebase' (nesta forma) é um atalho que permite que você pegue seções inteiras de um repositório e as mova para algum outro lugar.</p>
 
 
   <div class="clear"></div><div class="linear_nav_links"><a href="/sections/rebase-from-the-ground-up/cherry-picking-explained.html" class="prev">&larr; Cherry-Picking Explained</a><link rel="prev" href="/sections/rebase-from-the-ground-up/cherry-picking-explained.html" /><a href="/sections/rebase-from-the-ground-up/a-helpful-mnemonic-for-git-rebase-arguments.html" class="next">A Helpful Mnemonic for 'git rebase' Arguments &rarr;</a><link rel="next" href="/sections/rebase-from-the-ground-up/a-helpful-mnemonic-for-git-rebase-arguments.html" /></div>

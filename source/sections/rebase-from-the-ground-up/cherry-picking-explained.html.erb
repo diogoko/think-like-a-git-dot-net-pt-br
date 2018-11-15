@@ -5,37 +5,37 @@ layout: section
 
 
 
-<p>Git's own online help has a perfectly accurate, if characteristically terse, description of what the command does:</p>
+<p>A ajuda online do Git tem uma descrição perfeitamente precisa, mesmo que caracteristicamente sucinta, do que o comando faz:</p>
 
 <blockquote>
-  <p>Given one or more existing commits, apply the change each one introduces, recording a new commit for each.</p>
+  <p>Dados um ou mais commits existentes, aplica a mudança que cada um introduz, gravando um novo commit para cada um.</p>
 </blockquote>
 
-<p>I've already mentioned (back on the page about <%= section_link('Garbage Collection') %>) that a Git commit's ID is a hash of both its contents and its history.  So, even if you have two commits that introduce the exact same change, if they point to different parent commits, they'll have different IDs.</p>
+<p>Eu já tinha mencionado (lá na página sobre <%= section_link('Garbage Collection') %>) que o ID de um commit do Git é um hash do seu conteúdo e do seu histórico. Então, mesmo que você tenha dois commits que introduzem exatamente a mesma mudança, se eles apontam para commits pais diferentes, eles terão IDs diferentes.</p>
 
-<p>What <code class="inline">git cherry-pick</code> does, basically, is take a commit from somewhere else, and "play it back" wherever you are right now.  Because this introduces the same change with a different parent, Git builds a new commit with a different ID.</p>
+<p>O que o <code class="inline">git cherry-pick</code> faz, basicamente, é pegar um commit de algum outro lugar, e "reproduzí-lo" onde quer que você esteja agora. Como isso introduz a mesma mudança com um pai diferente, o Git constroi um novo commit com um ID diferente.</p>
 
-<p>Let's go back to this example from the <%= section_link('Reachability') %> section:</p>
+<p>Vamos voltar ao exemplo da seção <%= section_link('Reachability') %>:</p>
 
 <div class="wp-caption">
   <img src="/think-like-a-git-dot-net-pt-br/assets/images2/reachability-example.png" class="no-shadow" />
 </div>
 
-<p>If you were at node H in this graph, and you typed <code class="inline">git cherry-pick E</code> <em>(yes, you'd actually type part or all of the SHA for the commit, but for simplicity's sake, I'll just use the labels that are already here)</em>, you'd wind up with a copy of commit E—let's call it "E prime" or <strong>E'</strong>—that pointed to <strong>H</strong> as its parent, like so:</p>
+<p>Se você estivesse no vértice H deste grafo, e você digitasse <code class="inline">git cherry-pick E</code> <em>(sim, você na verdade digitaria parte ou todo o SHA do commit, mas para simplificar, vamos apenas usar os rótulos que já estão aqui)</em>, você acabaria com uma cópia do commit E—vamos chamá-lo de "E linha" ou <strong>E'</strong>—que apontava para <strong>H</strong> como seu pai, como:</p>
 
 <div class="wp-caption">
   <img src="/think-like-a-git-dot-net-pt-br/assets/images2/cherry-pick-example-1.png" class="no-shadow" />
 </div>
 
-<p>Or, if you typed something like <code class="inline">git cherry-pick C D E</code>, you'd wind up with this when you were done:</p>
+<p>Ou, se você digitasse algo como <code class="inline">git cherry-pick C D E</code>, você acabaria com isso quando estivesse terminado:</p>
 
 <div class="wp-caption">
   <img src="/think-like-a-git-dot-net-pt-br/assets/images2/cherry-pick-example-2.png" class="no-shadow" />
 </div>
 
-<p>The important thing to notice here is that Git has copied changes made in one place, and replayed them somewhere else.</p>
+<p>O importante a perceber aqui é que o Git copiou as mudanças feitas num lugar, e as reproduziu em algum outro lugar.</p>
 
-<p>Here's a quick slideshow that steps through the process:</p><!-- Making up for my lack of Javascript skills with Ruby instead -->
+<p>Eis uma rápida apresentação dos passos deste processo:</p><!-- Making up for my lack of Javascript skills with Ruby instead -->
 
 
 <div class="wp-caption">
@@ -43,13 +43,7 @@ layout: section
     <div id="cherry-pick-slideshow-slide-<%= i %>" class="cherry-pick-slideshow-slide" style="text-align: left;">
       <img src="/think-like-a-git-dot-net-pt-br/assets/images2/cherry-pick-slideshow/cherry-pick-step-&lt;%= i %&gt;.png" class="no-shadow" />
       <div style="text-align: center;">
-        
-        Step <%= i %>
-        <br />
-        <button ><%= 'disabled' if i == 1 %> onclick="show_slide('cherry-pick-slideshow', 1);"&gt;←←</button>
-        <button ><%= 'disabled' if i == 1 %> onclick="show_slide('cherry-pick-slideshow', <%= i.pred %>);"&gt;←</button>
-        <button ><%= 'disabled' if i == 7 %> onclick="show_slide('cherry-pick-slideshow', <%= i.succ %>);"&gt;→</button>
-        <button ><%= 'disabled' if i == 7 %> onclick="show_slide('cherry-pick-slideshow', 7);"&gt;→→</button>
+        Passo <%= i %> <br /> <button ><%= 'disabled' if i == 1 %> onclick="show_slide('cherry-pick-slideshow', 1);"&gt;←←</button> <button ><%= 'disabled' if i == 1 %> onclick="show_slide('cherry-pick-slideshow', <%= i.pred %>);"&gt;←</button> <button ><%= 'disabled' if i == 7 %> onclick="show_slide('cherry-pick-slideshow', <%= i.succ %>);"&gt;→</button> <button ><%= 'disabled' if i == 7 %> onclick="show_slide('cherry-pick-slideshow', 7);"&gt;→→</button>
       </div>
     </div>
   <% end -%>

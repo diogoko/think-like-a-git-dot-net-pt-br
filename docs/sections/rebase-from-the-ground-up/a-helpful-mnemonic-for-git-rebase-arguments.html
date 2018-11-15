@@ -89,7 +89,7 @@
 
   
 
-<p>To summarize the previous section, this:</p>
+<p>Para resumir a seção anterior, isso:</p>
 
 <code>
   
@@ -102,7 +102,7 @@
 
 </code>
 
-<p>is equivalent to this:</p>
+<p>é equivalente a isso:</p>
 
 <code>
   
@@ -110,13 +110,13 @@
 
 </code>
 
-<p>When you do a rebase, you are <em><strong>rewriting history.</strong></em>  You are, in effect, saying to Git, "Hey, you know those things that happened over there on that completely different timeline?  I want you to pretend that they happened here instead."</p>
+<p>Quando você faz um rebase, você está <em><strong>reescrevendo o histórico.</strong></em> Você está, efetivamente, dizendo para o Git, "Ei, você sabe essas coisas que aconteceram ali naquela linha do tempo completamente diferente? Em vez disso eu quero que você finja que elas aconteceram aqui."</p>
 
-<p>The documentation for the rebase command lists a lot of different ways you can invoke it.  Frankly, I'm still not sure what some of them do, and I have a hard time parsing out the different parentheses and brackets to figure out exactly how you'd use, for example, <code class="inline">--onto</code>.</p>
+<p>A documentação para o comando rebase lista um monte de maneiras diferentes de invocá-lo. Francamente, eu ainda não tenho certeza do que algumas delas fazem, e eu tenho uma certa dificuldade interpretando os diferentes parênteses e colchetes para descobrir exatamente como você usaria, por exemplo, <code class="inline">--onto</code>.</p>
 
-<p>Here's how I think of it:  in English, we read <strong>from left to right</strong>.  On most charts that show the change in something over time, time is shown on the x-axis of the graph, with time increasing <strong>from left to right</strong>.  When you issue commands to the shell, you can put several of them on one line, and they'll be executed in order <strong>from left to right</strong>.</p>
+<p>É assim que eu penso: em português, nós lemos <strong>da esquerda para a direita</strong>. Na maioria dos diagramas que mostram a mudança ao longo do tempo, o tempo é mostrado no eixo x do gráfico, com o tempo avançando <strong>da esquerda para a direita</strong>. Quando você executa comandos no shell, você pode por vários deles numa única linha, e eles serão executados na ordem <strong>da esquerda para a direita</strong>.</p>
 
-<p>So when I use <code class="inline">git rebase</code>, I <em>(almost)</em> always give it two arguments:  the name of the place I want to start from, and the name of the place I want to end up.  Or, to put it another way, I tell rebase the sequence of events I want it to create, <strong>from left to right</strong>:  <code class="inline">git rebase first_this then_this</code></p>
+<p>Então quando eu uso <code class="inline">git rebase</code>, eu <em>(quase)</em> sempre uso dois argumentos: o nome do lugar de onde eu quero começar, e o nome do lugar onde eu quero terminar. Ou, para dizer de outra forma, eu digo para o rebase a sequência de eventos que eu quero criar, <strong>da esquerda para a direita</strong>: <code class="inline">git rebase primeiro_isso depois_isso</code></p>
 
 
   <div class="clear"></div><div class="linear_nav_links"><a href="/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html" class="prev">&larr; Using 'git cherry-pick' to Simulate 'git rebase'</a><link rel="prev" href="/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html" /><a href="/sections/the-end.html" class="next">The End &rarr;</a><link rel="next" href="/sections/the-end.html" /></div>

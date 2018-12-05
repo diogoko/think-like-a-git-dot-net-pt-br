@@ -89,36 +89,34 @@
 
   
 
-<p>Once you're comfortable with <a href="/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, you might get tired of creating the savepoint branch, only to have to remember to delete it every time.  If so, I have good news for you:  you don't actually need to use a branch as a savepoint for merges.</p>
+<p>Depois que você ficar confortável com <a href="/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, você pode se cansar de ficar criando o branch de ponto de retorno, só para ter que lembrar de excluí-lo a cada vez. Se é assim, eu tenho boas notícias para você: você na verdade não precisa usar um branch como um ponto de retorno para merges.</p>
 
-<p>Merge commits always wind up with a branch label pointing at them, and one of the branch's parent commits will be the commit that that branch label was just moved from.</p>
+<p>Um commit de merge sempre termina com um rótulo de branch apontando para ele e um dos commits pai do branch vai ser o commit de onde esse rótulo de branch foi movido.</p>
 
-<p>It may take you a few tries to parse that sentence.  The upshot is that the commit you started on—the one you would've marked with a savepoint branch—<strong>will always be reachable.</strong></p>
+<p>Você pode precisar ler essa frase algumas vezes para entendê-la. O resultado é que o commit de onde você começou—aquele que você teria marcado com um branch de retorno—<strong>sempre será alcançável.</strong></p>
 
-<p>Here's the thing:  <strong>Git doesn't care what you call your branches.</strong>  Remember, branches are just a 40-byte file on disk that points to the commit's SHA-1 hash, which is what Git really uses for all of its work.  The branch is just there for us puny humans to have some convenient, memorable name pointing to part of the graph.</p>
+<p>Aí que está: <strong>o Git não liga como você chama os seus branches.</strong> Lembre-se, os branches são apenas arquivos de 40 bytes no disco que apontam para o hash SHA-1 do commit, razão pela qual o Git realmente os usa para tudo. O branch na verdade só está la para que nós humanos molengas tenhamos um nome conveniente, memorável apontando para uma parte do grafo.</p>
 
-<p>At the end of <a href="/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, the command you type to reset your branch to the savepoint is <code class="inline">git reset --hard savepoint</code> (where "savepoint" is a branch name).  If you look at the documentation that comes up when you type <code class="inline">git reset -h</code>, you'll see that the final argument it takes is called <code class="inline">&lt;commit&gt;</code>.  Older versions of the documentation called this <code class="inline">&lt;commit-ish&gt;</code>, which was a convenient reminder that you could use anything that Git can turn into a SHA-1 hash.</p>
+<p>Ao final de <a href="/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, o comando que você digita para reiniciar o seu branch para o ponto de retorno é <code class="inline">git reset --hard savepoint</code> (onde "savepoint" é um nome de branch). Se você olhar a documentação que aparece quando você digita <code class="inline">git reset -h</code>, você verá que o argumento final que ele recebe se chama <code class="inline">&lt;commit&gt;</code>. Versões anteriores da documentação chamavam isso de <code class="inline">&lt;commit-ish&gt;</code>, o que era um lembrete conveniente de que você poderia usar qualquer coisa que o Git conseguisse transformar num hash SHA-1.</p>
 
-<p>Things Git is happy to accept in a <code class="inline">&lt;commit&gt;</code> argument include (but are probably not limited to):</p>
+<p>Coisas que o Git fica feliz em aceitar num argumento <code class="inline">&lt;commit&gt;</code> incluem (mas provavelmente não se limitam a):</p>
 
 <ul class="full-size">
-  <li>Branch names</li>
+  <li>Nomes de branches</li>
   <li>Tags</li>
-  <li>Relative references like <strong>HEAD^</strong>, <strong>HEAD^^</strong>, or <strong>HEAD~3</strong></li>
-  <li>partial SHA-1 hashes like 8d434382 (you just have to provide enough initial digits to be unique; Git will fill in the rest for you)</li>
-  <li>SHA-1 hashes like 8d434382d9420940be260199a8a058cf468d9037 (these are <em>very</em> easy for Git to turn into SHA-1 hashes!)</li>
+  <li>Referências relativas como <strong>HEAD^</strong>, <strong>HEAD^^</strong>, or <strong>HEAD~3</strong></li>
+  <li>hashes SHA-1 parciais como 8d434382 (você só precisa fornecer dígitos iniciais suficientes para que sejam únicos; o Git vai completar o resto para você)</li>
+  <li>hashes SHA-1 como 8d434382d9420940be260199a8a058cf468d9037 (esses são <em>muito</em> fáceis para o Git transformar em hashes SHA-1!)</li>
 </ul>
 
-<p>So, at the end of <a href="/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, if you wanted to back out of the merge, you could just as easily use <code class="inline">git log</code> or your visualizer to find the SHA-1 of the commit (let's say it starts with 1234abcd), and type this:</p>
+<p>Então, no final de <a href="/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, se você realmente quer desfazer o merge, você pode simplesmente usar <code class="inline">git log</code> ou seu visualizador para descobrir o SHA-1 do commit (vamos dizer que comece com 1234abcd), e daí digitar isto:</p>
 
 <code>git reset --hard 1234abcd</code>
 
-<p>...and <strong>Git would behave exactly the same</strong> as if you'd remembered to create a branch in the first place.</p>
+<p>...e <strong>o Git se comportaria do mesmo jeito</strong> que quando você lembrou de criar um branch antes do merge.</p>
 
 <div class="wp-caption" style="text-align: left; padding: 5px;">
-  
-  That bit about "if you'd remembered to" reminds me:  one of the single most helpful bits of commentary I ever read about Git was Ryan Tomayko's <a href="http://tomayko.com/writings/the-thing-about-git">The Thing About Git</a>.  (Yes, that's the same thing I linked to in <a href="/sections/git-makes-more-sense-when-you-understand-x/example-4-lsd-and-chainsaws.html">LSD and Chainsaws</a>.)
-
+  Essa parte sobre "quando você lembrou de" me lembra: um dos comentários mais úteis que eu já li sobre o Git foi o <a href="http://tomayko.com/writings/the-thing-about-git">The Thing About Git</a> do Ryan Tomayko. (Sim, é o mesmo que eu citei no <a href="/sections/git-makes-more-sense-when-you-understand-x/example-4-lsd-and-chainsaws.html">LSD and Chainsaws</a>.)
 </div>
 
 

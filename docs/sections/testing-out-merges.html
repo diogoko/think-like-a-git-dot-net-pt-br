@@ -89,22 +89,18 @@
 
   
 
-<p>These days, I sling branches around without really thinking much about it.  But the first few times I tried using different branches to develop features, it was a bit nerve-wracking.  If that's where you are, what follows are two simple recipes that should help you play around with <code class="inline">git merge</code> until you understand exactly what it does.</p>
+<p>Hoje em dia, eu crio branches por aí sem realmente pensar muito sobre isso. Mas nas primeiras vezes que eu tentei usar branches separados para implementar funcionalidades, eu estava um pouco nervoso. Se você está nessa situação, vou mostrar a seguir duas simples receitas que devem te ajudar a experimentar com <code class="inline">git merge</code> até que você entenda exatamente o que ele faz.</p>
 
-<p>I've put together two slight variations on the same operation.  Both techniques basically do the same thing, but one of them relies on a slightly scarier-sounding Git command for the undo.</p>
+<p>Eu montei duas pequenas variações da mesma operação. Ambas as técnicas basicamente fazem a mesma coisa, mas uma delas se baseia num comando Git com uma cara um pouquinho mais assustadora para o "desfazer".</p>
 
-<p>You might prefer one or the other based on how uncertain you are—about either your Git skills, or the specific merge you're about to try.</p>
+<p>Você pode preferir um ou outro dependendo de quão inseguro você está—seja sobre sua habilidade com o Git, seja sobre o merge específico que você vai tentar.</p>
 
 <ul class="full-size">
   <li>
-    
-    Use <a href="/sections/testing-out-merges/the-scout-pattern.html">the Scout pattern</a> if you're still unclear on exactly what <code class="inline">git merge</code> does, or if you think it's likely that you'll decide to back out of the merge.
-  
+    Use <a href="/sections/testing-out-merges/the-scout-pattern.html">the Scout pattern</a> se você ainda não está certo sobre o que exatamente o <code class="inline">git merge</code> faz, ou se você acha provável que você decidirá desfazer o merge.
   </li>
   <li>
-    
-    Use <a href="/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a> if you're pretty sure what you want to do, but just want to leave yourself an undo button in case things get too messy.
-  
+    Use <a href="/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a> se você tem quase certeza do que quer fazer, mas mesmo assim quer ter uma garantia caso as coisas fiquem muito complicadas.
   </li>
 </ul>
 

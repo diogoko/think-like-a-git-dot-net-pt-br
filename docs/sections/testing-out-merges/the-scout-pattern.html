@@ -89,92 +89,78 @@
 
   
 
-<p>Here's a quick overview of the steps in this recipe:</p>
+<p>Eis um resumo nos passos desta receita:</p>
 
 <ol class="full-size">
-  <li>Make sure you're on the right branch and that you have a clean working state.</li>
-  <li>Create a new branch (I often name it <em>test_merge</em>) and switch to it.</li>
-  <li>Do the merge.</li>
-  <li>Switch to your visualizer and predict how its view will change when you refresh it.</li>
-  <li>Refresh your visualizer and see whether your prediction was correct.</li>
-  <li>Are you happy with the result?
-    
+  <li>Tenha certeza de que você está no branch certo e tem uma cópia de trabalho limpa.</li>
+  <li>Crie um novo branch (geralmente eu chamo de <em>test_merge</em>) e troque para ele.</li>
+  <li>Faça o merge.</li>
+  <li>Abra o seu visualizador e imagine como o seu histórico vai mudar quando você o atualizar.</li>
+  <li>Atualize o seu visualizador e veja se sua previsão estava correta.</li>
+  <li>Ficou satisfeito com o resultado?
     <ul>
-      <li>If YES: Move your real branch forward to where the <em>test_merge</em> branch is.</li>
-      <li>If NO: Delete the <em>test_merge</em> branch.</li>
+      <li>Se SIM: Mova seu branch real para onde o branch <em>test_merge</em> está.</li>
+      <li>Se NÃO: Exclua o branch <em>test_merge</em>.</li>
     </ul>
   </li>
 </ol>
 
-<p>I call this the Scout pattern:  you're unsure what the terrain ahead is like, so you send a scouting party ahead to check it out.  If they radio back that everything's okay, you'll move ahead and join them.  If not, well, it was just a small scouting party and we'll tell the families that they died with honor...</p>
+<p>Eu chamo isso do padrão do Olheiro: você não tem certeza de como é o terreno à frente, então manda um grupo de olheiros para ir na frente e verificar. Se ele informa que está tudo bem, você segue em frente e se junta a eles. Se não, bom, era só um grupo pequeno de olheiros e nós diremos às famílias que eles morreram com honra...</p>
 
-<h3>The long version</h3>
+<h3>A versão longa</h3>
 
-<p>You're on the <em><strong>master</strong></em> branch and you want the changes from the <em><strong>spiffy_new_feature</strong></em> branch to be incorporated into <em><strong>master.</strong></em>  You're not sure if this will be a good idea, so you want to try out the merge, but be able to abort it if things don't go smoothly.</p>
+<p>Você está no branch <em><strong>master</strong></em> e você quer que as mudanças do branch <em><strong>spiffy_new_feature</strong></em> sejam incorporadas ao <em><strong>master.</strong></em> Você não tem certeza se isso é uma boa ideia, então você quer testar o merge e ser capaz de desfazê-lo se as coisas não saírem como esperado.</p>
 
 <ol>
   <li>
-    <strong>Make sure you're on the right branch and that you have a clean working state.</strong>
+    <strong>Tenha certeza de que você está no branch certo e tem uma cópia de trabalho limpa.</strong>
     <ul>
       <li>
-        
-        Whatever visualizer you're using, figure out how it shows you where your current branch is.  Or, at the command line, type <code class="inline">git status</code> and you should see something like this:
-        <code>
-          # On branch master <br />
-          nothing to commit (working directory clean)
-        </code>
+        Seja qual for o visualizador que você está usando, descubra como ele mostra qual o branch atual em que você está. Ou, na linha de comando, digite <code class="inline">git status</code> e você deve ver algo como isso: <code> # On branch master <br /> nothing to commit (working directory clean) </code>
       </li>
     </ul>
   </li>
   <li>
-    <strong>Create a new branch and switch to it.</strong>
+    <strong>Crie um novo branch e troque para ele.</strong>
     <ul>
       <li>
-        
-        Type <code class="inline">git checkout -b test_merge</code>.  Now, if you type <code class="inline">git status</code> again, you should see a message that you're on the <em><strong>test_merge</strong></em> branch.
-      
+        Digite <code class="inline">git checkout -b test_merge</code>. Agora, se você digitar <code class="inline">git status</code> de novo, você deve ver uma mensagem dizendo que você está no branch <em><strong>test_merge</strong></em>.
       </li>
     </ul>
   </li>
   <li>
-    <strong>Do the merge.</strong>
+    <strong>Faça o merge.</strong>
     <ul>
       <li>
-        
-        Type <code class="inline">git merge spiffy_new_feature</code>.  If you're lucky, there won't be any merge conflicts you can't resolve.
-      
+        Digite <code class="inline">git merge spiffy_new_feature</code>. Se você tiver sorte, não haverão conflitos de merge que você não consiga resolver.
       </li>
-      <li><strong>If you want to abort the merge</strong> at this point, type <code class="inline">git reset --hard</code>.</li>
+      <li><strong>Se você quiser cancelar o merge</strong> neste ponto, digite <code class="inline">git reset --hard</code>.</li>
     </ul>
   </li>
   <li>
-    <strong>Switch to your visualizer and predict how its view will change when you refresh it.</strong>
+    <strong>Abra o seu visualizador e imagine como o seu histórico vai mudar quando você o atualizar.</strong>
     <ul>
       <li>
-        
-        For example:
-        
+        Por exemplo:
         <ol>
-          <li>After a merge, you should see a new commit.</li>
-          <li>The new commit should have a message like "Merge branch 'spiffy_new_feature' into master".</li>
-          <li>Your <em><strong>test_merge</strong></em> branch label should have moved to this new commit, while the <em><strong>master</strong></em> and <em><strong>spiffy_new_feature</strong></em> branch labels should still be in the same place.</li>
+          <li>Depois do merge, você deve ver um novo commit.</li>
+          <li>O novo commit deve ter uma mensagem como "Merge branch 'spiffy_new_feature' into master".</li>
+          <li>O rótulo do seu branch <em><strong>test_merge</strong></em> deve ter sido movido para este novo commit, enquanto que os rótulos dos branches <em><strong>master</strong></em> e <em><strong>spiffy_new_feature</strong></em> devem estar no mesmo lugar.</li>
         </ol>
       </li>
     </ul>
   </li>
   <li>
-    <strong>Refresh your visualizer and see whether your prediction was correct.</strong>
+    <strong>Atualize o seu visualizador e veja se sua previsão estava correta.</strong>
   </li>
   <li>
-    <strong>Are you happy with the result?</strong>
+    <strong>Ficou satisfeito com o resultado?</strong>
     <ul>
       <li>
-        <strong>If YES:</strong> Move the <em>master</em> branch forward to where the <em>test_merge</em> branch is with:
-        <code>git checkout master <br />git merge test_merge</code>
+        <strong>Se SIM:</strong> Mova o branch <em>master</em> até onde o branch <em>test_merge</em> está com: <code>git checkout master <br />git merge test_merge</code>
       </li>
       <li>
-        <strong>If NO:</strong> Drop the <em>test_merge</em> branch with:
-        <code>git checkout master <br />git branch -D test_merge</code>
+        <strong>Se NÃO:</strong> Exclua o branch <em>test_merge</em> com: <code>git checkout master <br />git branch -D test_merge</code>
       </li>
     </ul>
   </li>

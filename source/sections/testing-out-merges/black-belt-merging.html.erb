@@ -5,13 +5,13 @@ layout: section
 
 
 
-<p>Depois que você ficar confortável com <%= section_link('the Savepoint pattern') %>, você pode se cansar de ficar criando o branch de ponto de retorno, só para ter que lembrar de excluí-lo a cada vez. Se é assim, eu tenho boas notícias para você: você na verdade não precisa usar um branch como um ponto de retorno para merges.</p>
+<p>Depois que você ficar confortável com <%= section_link('the Savepoint pattern') %>, você pode se cansar de ficar criando o branch de ponto de retorno, só para ter que lembrar de excluí-lo a cada vez. Se é assim, eu tenho boas notícias para você: na verdade você não precisa usar um branch como um ponto de retorno para merges.</p>
 
 <p>Um commit de merge sempre termina com um rótulo de branch apontando para ele e um dos commits pai do branch vai ser o commit de onde esse rótulo de branch foi movido.</p>
 
 <p>Você pode precisar ler essa frase algumas vezes para entendê-la. O resultado é que o commit de onde você começou—aquele que você teria marcado com um branch de retorno—<strong>sempre será alcançável.</strong></p>
 
-<p>Aí que está: <strong>o Git não liga como você chama os seus branches.</strong> Lembre-se, os branches são apenas arquivos de 40 bytes no disco que apontam para o hash SHA-1 do commit, razão pela qual o Git realmente os usa para tudo. O branch na verdade só está la para que nós humanos molengas tenhamos um nome conveniente, memorável apontando para uma parte do grafo.</p>
+<p>Aí que está: <strong>o Git não liga para como você chama os seus branches.</strong> Lembre-se, os branches são apenas arquivos de 40 bytes no disco que apontam para o hash SHA-1 do commit, razão pela qual o Git realmente os usa para tudo. O branch na verdade só está la para que nós humanos molengas tenhamos um nome conveniente, memorável, apontando para uma parte do grafo.</p>
 
 <p>Ao final de <%= section_link('the Savepoint pattern') %>, o comando que você digita para reiniciar o seu branch para o ponto de retorno é <code class="inline">git reset --hard savepoint</code> (onde "savepoint" é um nome de branch). Se você olhar a documentação que aparece quando você digita <code class="inline">git reset -h</code>, você verá que o argumento final que ele recebe se chama <code class="inline">&lt;commit&gt;</code>. Versões anteriores da documentação chamavam isso de <code class="inline">&lt;commit-ish&gt;</code>, o que era um lembrete conveniente de que você poderia usar qualquer coisa que o Git conseguisse transformar num hash SHA-1.</p>
 

@@ -95,11 +95,11 @@
   <p>Dados um ou mais commits existentes, aplica a mudança que cada um introduz, gravando um novo commit para cada um.</p>
 </blockquote>
 
-<p>Eu já tinha mencionado (lá na página sobre <a href="/sections/graphs-and-git/garbage-collection.html">Garbage Collection</a>) que o ID de um commit do Git é um hash do seu conteúdo e do seu histórico. Então, mesmo que você tenha dois commits que introduzem exatamente a mesma mudança, se eles apontam para commits pais diferentes, eles terão IDs diferentes.</p>
+<p>Eu já tinha mencionado (lá na página sobre <a href="/think-like-a-git-dot-net-pt-br/sections/graphs-and-git/garbage-collection.html">Garbage Collection</a>) que o ID de um commit do Git é um hash do seu conteúdo e do seu histórico. Então, mesmo que você tenha dois commits que introduzem exatamente a mesma mudança, se eles apontam para commits pais diferentes, eles terão IDs diferentes.</p>
 
 <p>O que o <code class="inline">git cherry-pick</code> faz, basicamente, é pegar um commit de algum outro lugar, e "reproduzí-lo" onde quer que você esteja agora. Como isso introduz a mesma mudança com um pai diferente, o Git constroi um novo commit com um ID diferente.</p>
 
-<p>Vamos voltar ao exemplo da seção <a href="/sections/graph-theory/reachability.html">Reachability</a>:</p>
+<p>Vamos voltar ao exemplo da seção <a href="/think-like-a-git-dot-net-pt-br/sections/graph-theory/reachability.html">Reachability</a>:</p>
 
 <div class="wp-caption">
   <img src="/think-like-a-git-dot-net-pt-br/assets/images2/reachability-example.png" class="no-shadow" />
@@ -179,7 +179,7 @@
 </script>
 
 
-  <div class="clear"></div><div class="linear_nav_links"><a href="/sections/rebase-from-the-ground-up.html" class="prev">&larr; Rebase From the Ground Up</a><link rel="prev" href="/sections/rebase-from-the-ground-up.html" /><a href="/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html" class="next">Using 'git cherry-pick' to Simulate 'git rebase' &rarr;</a><link rel="next" href="/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html" /></div>
+  <div class="clear"></div><div class="linear_nav_links"><a href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up.html" class="prev">&larr; Rebase From the Ground Up</a><link rel="prev" href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up.html" /><a href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html" class="next">Using 'git cherry-pick' to Simulate 'git rebase' &rarr;</a><link rel="next" href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up/using-git-cherry-pick-to-simulate-git-rebase.html" /></div>
 
   <!-- keyboard prev/next navigation -->
   <script type="text/javascript" src="/assets/js/section.js"></script>

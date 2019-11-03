@@ -23,7 +23,7 @@ task :rebuild => ['clear_build_dir', 'build']
 
 
 ##### Deployment #####
-require 'rake/contrib/sshpublisher'
+#require 'rake/contrib/sshpublisher'
 namespace :deploy do
   desc 'Deploy to the server using rsync'
   task :rsync do
@@ -33,5 +33,12 @@ namespace :deploy do
   end
 end
 
+namespace :deploy do
+  task :github do
+    sh "rm -rf docs"
+    sh "mv build docs"
+  end
+end
+
 desc 'deploy the site to the webserver'
-task :deploy => ['build', 'deploy:rsync']
+task :deploy => ['rebuild', 'deploy:github']

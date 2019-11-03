@@ -89,15 +89,15 @@
 
   
 
-<p>Depois que você ficar confortável com <a href="/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, você pode se cansar de ficar criando o branch de ponto de retorno, só para ter que lembrar de excluí-lo a cada vez. Se é assim, eu tenho boas notícias para você: você na verdade não precisa usar um branch como um ponto de retorno para merges.</p>
+<p>Depois que você ficar confortável com <a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, você pode se cansar de ficar criando o branch de ponto de retorno, só para ter que lembrar de excluí-lo a cada vez. Se é assim, eu tenho boas notícias para você: na verdade você não precisa usar um branch como um ponto de retorno para merges.</p>
 
 <p>Um commit de merge sempre termina com um rótulo de branch apontando para ele e um dos commits pai do branch vai ser o commit de onde esse rótulo de branch foi movido.</p>
 
 <p>Você pode precisar ler essa frase algumas vezes para entendê-la. O resultado é que o commit de onde você começou—aquele que você teria marcado com um branch de retorno—<strong>sempre será alcançável.</strong></p>
 
-<p>Aí que está: <strong>o Git não liga como você chama os seus branches.</strong> Lembre-se, os branches são apenas arquivos de 40 bytes no disco que apontam para o hash SHA-1 do commit, razão pela qual o Git realmente os usa para tudo. O branch na verdade só está la para que nós humanos molengas tenhamos um nome conveniente, memorável apontando para uma parte do grafo.</p>
+<p>Aí que está: <strong>o Git não liga para como você chama os seus branches.</strong> Lembre-se, os branches são apenas arquivos de 40 bytes no disco que apontam para o hash SHA-1 do commit, razão pela qual o Git realmente os usa para tudo. O branch na verdade só está la para que nós humanos molengas tenhamos um nome conveniente, memorável, apontando para uma parte do grafo.</p>
 
-<p>Ao final de <a href="/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, o comando que você digita para reiniciar o seu branch para o ponto de retorno é <code class="inline">git reset --hard savepoint</code> (onde "savepoint" é um nome de branch). Se você olhar a documentação que aparece quando você digita <code class="inline">git reset -h</code>, você verá que o argumento final que ele recebe se chama <code class="inline">&lt;commit&gt;</code>. Versões anteriores da documentação chamavam isso de <code class="inline">&lt;commit-ish&gt;</code>, o que era um lembrete conveniente de que você poderia usar qualquer coisa que o Git conseguisse transformar num hash SHA-1.</p>
+<p>Ao final de <a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, o comando que você digita para reiniciar o seu branch para o ponto de retorno é <code class="inline">git reset --hard savepoint</code> (onde "savepoint" é um nome de branch). Se você olhar a documentação que aparece quando você digita <code class="inline">git reset -h</code>, você verá que o argumento final que ele recebe se chama <code class="inline">&lt;commit&gt;</code>. Versões anteriores da documentação chamavam isso de <code class="inline">&lt;commit-ish&gt;</code>, o que era um lembrete conveniente de que você poderia usar qualquer coisa que o Git conseguisse transformar num hash SHA-1.</p>
 
 <p>Coisas que o Git fica feliz em aceitar num argumento <code class="inline">&lt;commit&gt;</code> incluem (mas provavelmente não se limitam a):</p>
 
@@ -109,18 +109,18 @@
   <li>hashes SHA-1 como 8d434382d9420940be260199a8a058cf468d9037 (esses são <em>muito</em> fáceis para o Git transformar em hashes SHA-1!)</li>
 </ul>
 
-<p>Então, no final de <a href="/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, se você realmente quer desfazer o merge, você pode simplesmente usar <code class="inline">git log</code> ou seu visualizador para descobrir o SHA-1 do commit (vamos dizer que comece com 1234abcd), e daí digitar isto:</p>
+<p>Então, no final de <a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges/the-savepoint-pattern.html">the Savepoint pattern</a>, se você realmente quer desfazer o merge, você pode simplesmente usar <code class="inline">git log</code> ou seu visualizador para descobrir o SHA-1 do commit (vamos dizer que comece com 1234abcd), e daí digitar isto:</p>
 
 <code>git reset --hard 1234abcd</code>
 
 <p>...e <strong>o Git se comportaria do mesmo jeito</strong> que quando você lembrou de criar um branch antes do merge.</p>
 
 <div class="wp-caption" style="text-align: left; padding: 5px;">
-  Essa parte sobre "quando você lembrou de" me lembra: um dos comentários mais úteis que eu já li sobre o Git foi o <a href="http://tomayko.com/writings/the-thing-about-git">The Thing About Git</a> do Ryan Tomayko. (Sim, é o mesmo que eu citei no <a href="/sections/git-makes-more-sense-when-you-understand-x/example-4-lsd-and-chainsaws.html">LSD and Chainsaws</a>.)
+  Essa parte sobre "quando você lembrou de" me lembra: um dos comentários mais úteis que eu já li sobre o Git foi o <a href="http://tomayko.com/writings/the-thing-about-git">The Thing About Git</a> do Ryan Tomayko. (Sim, é o mesmo que eu citei no <a href="/think-like-a-git-dot-net-pt-br/sections/git-makes-more-sense-when-you-understand-x/example-4-lsd-and-chainsaws.html">LSD and Chainsaws</a>.)
 </div>
 
 
-  <div class="clear"></div><div class="linear_nav_links"><a href="/sections/testing-out-merges/the-savepoint-pattern.html" class="prev">&larr; The Savepoint Pattern</a><link rel="prev" href="/sections/testing-out-merges/the-savepoint-pattern.html" /><a href="/sections/rebase-from-the-ground-up.html" class="next">Rebase From the Ground Up &rarr;</a><link rel="next" href="/sections/rebase-from-the-ground-up.html" /></div>
+  <div class="clear"></div><div class="linear_nav_links"><a href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges/the-savepoint-pattern.html" class="prev">&larr; The Savepoint Pattern</a><link rel="prev" href="/think-like-a-git-dot-net-pt-br/sections/testing-out-merges/the-savepoint-pattern.html" /><a href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up.html" class="next">Rebase From the Ground Up &rarr;</a><link rel="next" href="/think-like-a-git-dot-net-pt-br/sections/rebase-from-the-ground-up.html" /></div>
 
   <!-- keyboard prev/next navigation -->
   <script type="text/javascript" src="/assets/js/section.js"></script>

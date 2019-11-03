@@ -109,7 +109,7 @@ module SiteHelper
     if current_page.path =~ /epic/
       '#%s' % path
     else
-      '/sections/%s.html' % path
+      "#{THE_SITE_URL}/sections/%s.html" % path
     end
   end
 
